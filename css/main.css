@@ -1,0 +1,26 @@
+
+html,
+body {
+  font-family: arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+  color: #222;
+}
+
+#maincontainer {
+  width: 1000px;
+  margin: 10px auto;
+  border-radius: 20px;
+  background-color: #eee;
+}
+
+#header {
+	height: 250px;
+}
+
+#footer {
+	height: 100px;
+  font-size: 75%;
+  text-align: right;
+}
