@@ -25,6 +25,9 @@ body {
   text-decoration: underline;
 }
 
+#navigator {
+	margin-bottom: 20px;
+}
 #navigator ul {
 	list-style: none;
   padding: 0;
@@ -49,7 +52,7 @@ body {
   background-color: #333;
 }
 #navigator img.icon {
-	max-height: 20px;
+	max-height: 32px;
 }
 
 #footer {
@@ -61,4 +64,5 @@ body {
 #footer div {
 	padding: 1em 2em;
 }
+
 
