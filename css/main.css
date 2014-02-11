@@ -2,6 +2,7 @@
 html,
 body {
   font-family: arial, sans-serif;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   background-color: #333;
@@ -17,20 +18,38 @@ body {
 
 #contentcolumn {
 	min-height: 250px;
+  background-color: #fff;
 }
 
 #header {
-	height: 150px;
+	height: 250px;
+  position: relative;
+  border-bottom: 5px solid #333
 }
 #header div {
 	font-size: 300%;
   text-align: right;
-  padding: 1em 2em;
+  padding: 1em 1em 0 0;
   text-decoration: underline;
 }
 
+#header-social {
+	list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+}
+#header-social li {
+	display: inline-block;
+  margin: 0 10px;
+}
+#header-social img {
+	height: 32px;
+}
+
 #navigator {
-	margin-bottom: 20px;
 }
 #navigator ul {
 	list-style: none;
@@ -42,7 +61,7 @@ body {
 }
 #navigator a {
   margin: 0;
-  padding: 5px 10px;
+  padding: 10px 15px;
 	text-decoration: none;
   color: inherit;
   display: inline-block;
@@ -56,11 +75,12 @@ body {
 	height: 50px;
   font-size: 75%;
   text-align: right;
-  border-top: 0.5em solid #333;
+  border-top: 5px solid #333;
 }
 #footer div {
 	padding: 1em 2em;
 }
+
 
 
 
