@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+    <menu id="1" type="navigator" lang="it">
+        <item href="index.html" title="Home Page" value="Home"/>
+        <item href="http://github.com/mastro-elfo/dollar" title="GitHub dollar project by mastro-elfo" value="$ dollar"/>
+    </menu>
+</menus>
