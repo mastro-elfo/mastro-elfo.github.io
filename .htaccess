@@ -1,6 +1,0 @@
-
-RewriteEngine on
-RewriteBase /
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !=/index.php
-RewriteRule ^(.*)$ /index.php?path=$1 [L,PT]
