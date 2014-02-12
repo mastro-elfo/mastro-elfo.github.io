@@ -10,7 +10,9 @@ body {
 }
 
 #maincontainer {
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
+  min-width: 500px;
   margin: 10px auto;
   border-radius: 20px;
   background-color: #eee;
@@ -19,6 +21,10 @@ body {
 #contentcolumn {
 	min-height: 250px;
   background-color: #fff;
+  padding: 1em 2em;
+}
+#contentcolumn h1 {
+  margin: 0;
 }
 
 #header {
@@ -80,6 +86,7 @@ body {
 #footer div {
 	padding: 1em 2em;
 }
+
 
 
 
