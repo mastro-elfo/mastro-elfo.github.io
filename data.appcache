@@ -1,10 +1,10 @@
 CACHE MANIFEST
-# 2014-02-12 1
+# 2014-02-12 2
 css/main.css
-custom/img/facebook.png
-custom/img/linkedin.png
-custom/img/google.png
-custom/img/github.png
+img/facebook.png
+img/linkedin.png
+img/google.png
+img/github.png
 
 NETWORK:
 
