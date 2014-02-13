@@ -6,6 +6,7 @@
         <meta lang="it" name="description" value=""/>
         <meta lang="it" name="keywords" value=""/>
         <meta lang="it" name="author" value="Francesco Michienzi"/>
+        <manifest value="" model="manifest"/>
         <content>
             <header lang="it" value="" model="header"/>
             <navigator menu="0"/>
@@ -16,13 +17,28 @@
     <page id="dollar.html">
         <title lang="it" value="$ dollar project page" model=""/>
         <css value="custom/css/main.css"/>
-        <meta lang="it" name="description" value=""/>
-        <meta lang="it" name="keywords" value=""/>
+        <meta lang="it" name="description" value="My project $dollar. A very lightweight javascript collection of functions that are mostly used to build web application. It's tested in Firefox."/>
+        <meta lang="it" name="keywords" value="github,project,javascript,js,library,file,script,class,dollar,function,firefox"/>
         <meta lang="it" name="author" value="Francesco Michienzi"/>
+        <manifest value="" model="manifest"/>
         <content>
             <header lang="it" value="" model="header"/>
             <navigator menu="0"/>
             <contentcolumn lang="it" value="&lt;h1&gt;Dollar $&lt;/h1&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;http://github.com/mastro-elfo/dollar&quot; title=&quot;Dollar project on GitHub&quot;&gt;Dollar on GitHub&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;"/>
+            <footer lang="it" value="" model="footer"/>
+        </content>
+    </page>
+    <page id="curriculum.html">
+        <title lang="it" value="Francesco Michienzi Curriculum vitae" model=""/>
+        <css value="custom/css/main.css"/>
+        <meta lang="it" name="description" value="Curriculum vitae of Francesco Michienzi."/>
+        <meta lang="it" name="keywords" value="francesco,michienzi,curriculum,vitae"/>
+        <meta lang="it" name="author" value="Francesco Michienzi"/>
+        <manifest value="" model="manifest"/>
+        <content>
+            <header lang="it" value="" model="header"/>
+            <navigator menu="0"/>
+            <contentcolumn lang="it" value=""/>
             <footer lang="it" value="" model="footer"/>
         </content>
     </page>
