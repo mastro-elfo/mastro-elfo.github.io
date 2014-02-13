@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages>
+    <page id="index.html">
+        <title lang="it" value="Francesco Michienzi - personal pages" model=""/>
+        <css value="custom/css/main.css"/>
+        <meta lang="it" name="description" value=""/>
+        <meta lang="it" name="keywords" value=""/>
+        <meta lang="it" name="author" value="Francesco Michienzi"/>
+        <content>
+            <header lang="it" value="" model="header"/>
+            <navigator menu="0"/>
+            <contentcolumn lang="it" value=""/>
+            <footer lang="it" value="" model="footer"/>
+        </content>
+    </page>
+    <page id="dollar.html">
+        <title lang="it" value="$ dollar project page" model=""/>
+        <css value="custom/css/main.css"/>
+        <meta lang="it" name="description" value=""/>
+        <meta lang="it" name="keywords" value=""/>
+        <meta lang="it" name="author" value="Francesco Michienzi"/>
+        <content>
+            <header lang="it" value="" model="header"/>
+            <navigator menu="0"/>
+            <contentcolumn lang="it" value="&lt;h1&gt;Dollar $&lt;/h1&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;http://github.com/mastro-elfo/dollar&quot; title=&quot;Dollar project on GitHub&quot;&gt;Dollar on GitHub&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;"/>
+            <footer lang="it" value="" model="footer"/>
+        </content>
+    </page>
+</pages>
