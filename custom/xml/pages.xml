@@ -10,22 +10,36 @@
         <content>
             <header lang="it" value="" model="header"/>
             <navigator menu="0"/>
-            <contentcolumn lang="it" value=""/>
+            <contentcolumn lang="it" value="&lt;ul&gt; &lt;li&gt;$ dollar&lt;/li&gt; &lt;li&gt;Remi&lt;/li&gt; &lt;/ul&gt;"/>
             <footer lang="it" value="" model="footer"/>
         </content>
     </page>
     <page id="dollar.html">
-        <title lang="it" value="$ dollar project page" model=""/>
+        <title lang="it" value="$ dollar project page"/>
         <css value="custom/css/main.css"/>
         <meta lang="it" name="description" value="My project $dollar. A very lightweight javascript collection of functions that are mostly used to build web application. It's tested in Firefox."/>
         <meta lang="it" name="keywords" value="github,project,javascript,js,library,file,script,class,dollar,function,firefox"/>
         <meta lang="it" name="author" value="Francesco Michienzi"/>
-        <manifest value="" model="manifest"/>
+        <manifest model="manifest"/>
         <content>
             <header lang="it" value="" model="header"/>
             <navigator menu="0"/>
-            <contentcolumn lang="it" value="&lt;h1&gt;Dollar $&lt;/h1&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;http://github.com/mastro-elfo/dollar&quot; title=&quot;Dollar project on GitHub&quot;&gt;Dollar on GitHub&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;"/>
-            <footer lang="it" value="" model="footer"/>
+            <contentcolumn lang="it" value="&lt;h1&gt;$ Dollar&lt;/h1&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;http://github.com/mastro-elfo/dollar&quot; title=&quot;Dollar project on GitHub&quot;&gt;Dollar on GitHub&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;"/>
+            <footer lang="it" model="footer"/>
+        </content>
+    </page>
+    <page id="remi.html">
+        <title lang="it" value="Remember the milk"/>
+        <css value="custom/css/main.css"/>
+        <meta lang="it" name="description" value="A Firefox OS app to help not forget things anymore."/>
+        <meta lang="it" name="keywords" value="firefoxos,project,javascript,html,js,file,script,class,function,firefox,app,webapp"/>
+        <meta lang="it" name="author" value="Francesco Michienzi"/>
+        <manifest model="manifest"/>
+        <content>
+            <header lang="it" model="header"/>
+            <navigator menu="0"/>
+            <contentcolumn lang="it" value="&lt;h1&gt;Remember the milk (REMI)&lt;/h1&gt; &lt;p&gt;&lt;strong&gt;Remi&lt;/strong&gt; is a web application designed for Firefox OS devices that helps to not forget things.&lt;/p&gt; &lt;p&gt;With Remi you can manage lists of any kind. Choose a list name (e.g. Shopping list, to do, ...); add, edit, remove or check as 'done' list elements in a very simple and intuitive way.&lt;/p&gt; &lt;p&gt;Customize the main screen: choose from a set of page styles.&lt;/p&gt; &lt;p&gt;Remi is available on firefox os marketplace: &lt;a href=&quot;http://marketplace.firefox.com/app/remi/&quot; title=&quot;Remi on firefox marketplace&quot;&gt;click here.&lt;/a&gt;&lt;/p&gt;"/>
+            <footer lang="it" model="footer"/>
         </content>
     </page>
     <page id="curriculum.html">

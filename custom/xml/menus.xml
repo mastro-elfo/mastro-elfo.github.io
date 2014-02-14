@@ -3,5 +3,6 @@
     <menu id="0" type="navigator" lang="it">
         <item href="index.html" title="Home Page" value="Home"/>
         <item href="dollar.html" title="$ project page" value="$ dollar"/>
+        <item href="remi.html" title="Remi project page" value="Remi"/>
     </menu>
 </menus>

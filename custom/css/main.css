@@ -36,7 +36,6 @@ body {
 	font-size: 300%;
   text-align: right;
   padding: 1em 1em 0 0;
-  text-decoration: underline;
 }
 
 #header-social {
@@ -86,6 +85,7 @@ body {
 #footer div {
 	padding: 1em 2em;
 }
+
 
 
 
