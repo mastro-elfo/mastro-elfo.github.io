@@ -57,5 +57,14 @@
   font-size: 80%;
 }
 
+#dollar-builder button {
+	margin: 1em auto;
+  display: block;
+  background-color: #ccf;
+  border: none;
+  padding: 0.5em;
+  border-radius: 1em;
+  cursor: pointer;
+}
 
 
