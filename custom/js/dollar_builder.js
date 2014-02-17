@@ -108,5 +108,5 @@ function build(){
 			output += module['data'];
 		}
 	});
-	window.open('data:application/octet-stream,' + output, 'dollar.js');
+	window.open('data:application/octet-stream,charset=utf-8;base64,' + $.base64.encode(output), 'dollar.js');
 }
