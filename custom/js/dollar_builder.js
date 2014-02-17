@@ -59,7 +59,7 @@ window.onload = function() {
 	var list = $$.id('dollar-module-list');
 	
 	$.Each(modules, function(module, id) {
-		$.Ajax.get('custom/files/dollar/modules', {}, {
+		$.Ajax.get('custom/files/dollar/modules/dollar.'+id+'.js', {}, {
 			'onSuccess': function(txt) {
 				module['data'] = txt;
 			}
