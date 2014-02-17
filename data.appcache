@@ -7,6 +7,6 @@ custom/img/google.png
 custom/img/github.png
 
 NETWORK:
-*.html
+*
 
 FALLBACK:
