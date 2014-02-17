@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2014-02-17 18.4
+# 2014-02-17 19
 custom/css/main.css
 custom/img/facebook.png
 custom/img/linkedin.png
@@ -7,6 +7,6 @@ custom/img/google.png
 custom/img/github.png
 
 NETWORK:
-*
+*.html
 
 FALLBACK:

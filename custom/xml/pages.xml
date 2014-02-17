@@ -17,20 +17,6 @@
     <page id="dollar.html">
         <title lang="it" value="$ dollar project page"/>
         <css value="custom/css/main.css"/>
-        <meta lang="it" name="description" value="My project $dollar. A very lightweight javascript collection of functions that are mostly used to build web application. It's tested in Firefox."/>
-        <meta lang="it" name="keywords" value="github,project,javascript,js,library,file,script,class,dollar,function,firefox"/>
-        <meta lang="it" name="author" value="Francesco Michienzi"/>
-        <manifest model="manifest"/>
-        <content>
-            <header lang="it" value="" model="header"/>
-            <navigator menu="0"/>
-            <contentcolumn lang="it" value="&lt;h1&gt;$ Dollar&lt;/h1&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;http://github.com/mastro-elfo/dollar&quot; title=&quot;Dollar project on GitHub&quot;&gt;Dollar on GitHub&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;"/>
-            <footer lang="it" model="footer"/>
-        </content>
-    </page>
-    <page id="dollar-builder.html">
-        <title lang="it" value="$ dollar project page"/>
-        <css value="custom/css/main.css"/>
         <css value="custom/css/dollar_builder.css"/>
         <js value="custom/js/common/dollar.min.js"/>
         <js value="custom/js/dollar_builder.js"/>
@@ -41,7 +27,7 @@
         <content>
             <header lang="it" value="" model="header"/>
             <navigator menu="0"/>
-            <contentcolumn lang="it" value="&lt;h1&gt;$ Dollar&lt;/h1&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;http://github.com/mastro-elfo/dollar&quot; title=&quot;Dollar project on GitHub&quot;&gt;Dollar on GitHub&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt; &lt;div id=&quot;dollar-builder&quot;&gt;&lt;header&gt;Builder&lt;/header&gt;&lt;/div&gt;"/>
+            <contentcolumn lang="it" value="&lt;h1&gt;$ Dollar&lt;/h1&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;http://github.com/mastro-elfo/dollar&quot; title=&quot;Dollar project on GitHub&quot;&gt;Dollar on GitHub&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;&lt;div id=&quot;dollar-builder&quot;&gt;&lt;header&gt;Builder&lt;/header&gt;&lt;ul id=&quot;dollar-module-list&quot;&gt;&lt;/ul&gt;&lt;div&gt;&lt;button onclick=&quot;build();&quot;&gt;Download minified&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;"/>
             <footer lang="it" model="footer"/>
         </content>
     </page>
