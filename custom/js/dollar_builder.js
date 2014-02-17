@@ -56,15 +56,15 @@ var modules = {
 
 window.onload = function() {
 	var container = $$.id('dollar-builder');
+	var list = $$.id('dollar-module-list');
 	
-	$.Ajax.get('data.appcache', {}, {
-		'onSuccess': function(txt) {
-			alert(txt);
-		}
+	$.Each(modules, function(module, id) {
+		$.Ajax.get('custom/files/dollar/modules', {}, {
+			'onSuccess': function(txt) {
+				module['data'] = txt;
+			}
+		});
 	});
-	
-	var list = $$.element('ul');
-	$$.inject(list, container);
 	
 	$.Each(modules, function(module, id){
 		var li = $$.element('li', {
@@ -98,4 +98,15 @@ window.onload = function() {
 		});
 		$$.inject(li, list);
 	});
+};
+
+function build(){
+	var output = 'var $={};';
+	$.Each(modules, function(module, id){
+		var input = $$.id('dollar-builder-model-'+id);
+		if (input.checked || $$.hasClass(input, 'required')) {
+			output += module['data'];
+		}
+	});
+	window.open('data:application/octet-stream,' + output, 'dollar.js');
 }
