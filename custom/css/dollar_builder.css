@@ -1,0 +1,61 @@
+
+#dollar-builder {
+	border: 1px solid;
+  position: relative;
+  margin-top: 2em;
+  border-radius: 1em;
+}
+#dollar-builder header {
+	position: absolute;
+  top: -0.6em;
+  left: 0.6em;
+  background-color: white;
+  padding: 0 0.2em;
+}
+#dollar-builder ul {
+	list-style: none;
+}
+
+#dollar-builder li {
+	padding: 0.2em 0;
+}
+#dollar-builder li:hover {
+	background-color: #eef;
+}
+
+#dollar-builder ul label:not(for) {
+  display: block;
+}
+
+#dollar-builder ul label:not(for) input[type="checkbox"] {
+  display: none;
+}
+
+#dollar-builder ul label:not(for) input[type="checkbox"] + span {
+	display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  border: 1px solid #ccc;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  border-radius: 0.2em;
+}
+#dollar-builder ul label:not(for) input[type="checkbox"].required + span {
+  background-color: #ccf;
+}
+#dollar-builder ul label:not(for) input[type="checkbox"]:checked + span {
+  background-color: #ccc;
+}
+
+#dollar-builder .title {
+	min-width: 100px;
+  display: inline-block;
+}
+#dollar-builder .short {
+  display: inline-block;
+  margin-left: 1em;
+  font-size: 80%;
+}
+
+
+

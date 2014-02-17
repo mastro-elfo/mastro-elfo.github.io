@@ -31,12 +31,12 @@ body {
 }
 
 #header {
-	height: 250px;
+	height: 200px;
   position: relative;
   border-bottom: 5px solid #333
 }
 #header div {
-	font-size: 300%;
+	font-size: 200%;
   text-align: right;
   padding: 1em 1em 0 0;
 }
@@ -88,6 +88,8 @@ body {
 #footer div {
 	padding: 1em 2em;
 }
+
+
 
 
 
