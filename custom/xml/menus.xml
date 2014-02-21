@@ -2,7 +2,14 @@
 <menus>
     <menu id="0" type="navigator" lang="it">
         <item href="index.html" title="Home Page" value="Home"/>
+        <item href="projects.html" title="Projects" value="Projects"/>
         <item href="dollar.html" title="$ project page" value="$ dollar"/>
         <item href="remi.html" title="Remi project page" value="Remi"/>
+    </menu>
+    <menu id="path" type="path" lang="it">
+        <item id="projects.html" href="projects.html" title="Projects" value="Projects">
+            <item id="dollar.html" href="dollar.html" title="Dollar" value="Dollar"/>
+            <item id="remi.html" href="remi.html" title="Remi" value="Remi"/>
+        </item>
     </menu>
 </menus>

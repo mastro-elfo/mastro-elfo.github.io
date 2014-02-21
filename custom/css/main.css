@@ -57,8 +57,7 @@ body {
 	height: 32px;
 }
 
-#navigator {
-}
+#navigator {}
 #navigator ul {
 	list-style: none;
   padding: 0;
@@ -89,10 +88,20 @@ body {
 	padding: 1em 2em;
 }
 
-
-
-
-
-
-
-
+/**/.menu.path {
+  margin: -0.5em 0 1em;
+  padding: 0;
+  list-style: none;
+  font-size: 80%;
+}
+/**/.menu.path li {
+  display: inline-block;
+  margin-right: 0.5em;
+}
+/**/.menu.path li:after {
+  content: ">";
+  margin-left: 0.5em;
+}
+/**/.menu.path li:last-child:after {
+  content: "";
+}

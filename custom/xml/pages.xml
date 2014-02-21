@@ -10,7 +10,22 @@
         <content>
             <header lang="it" value="" model="header"/>
             <navigator menu="0"/>
-            <contentcolumn lang="it" value="&lt;ul&gt; &lt;li&gt;$ dollar&lt;/li&gt; &lt;li&gt;Remi&lt;/li&gt; &lt;/ul&gt;"/>
+            <contentcolumn lang="it" value="&lt;h1&gt;Home Page&lt;/h1&gt;"/>
+            <footer lang="it" value="" model="footer"/>
+        </content>
+    </page>
+    <page id="projects.html">
+        <title lang="it" value="Francesco Michienzi - Projects"/>
+        <css value="custom/css/main.css"/>
+        <meta lang="it" name="description" value=""/>
+        <meta lang="it" name="keywords" value=""/>
+        <meta lang="it" name="author" value="Francesco Michienzi"/>
+        <manifest value="" model="manifest"/>
+        <content>
+            <header lang="it" value="" model="header"/>
+            <navigator menu="0"/>
+            <contentcolumn model="path"/>
+            <contentcolumn lang="it" value="&lt;h1&gt;Projects&lt;/h1&gt; &lt;ul&gt; &lt;li&gt;$ dollar&lt;/li&gt; &lt;li&gt;Remi&lt;/li&gt; &lt;/ul&gt;"/>
             <footer lang="it" value="" model="footer"/>
         </content>
     </page>
@@ -27,6 +42,7 @@
         <content>
             <header lang="it" value="" model="header"/>
             <navigator menu="0"/>
+            <contentcolumn model="path"/>
             <contentcolumn lang="it" value="&lt;h1&gt;$ Dollar&lt;/h1&gt; &lt;ul&gt; &lt;li&gt;&lt;a href=&quot;http://github.com/mastro-elfo/dollar&quot; title=&quot;Dollar project on GitHub&quot;&gt;Dollar on GitHub&lt;/a&gt;&lt;/li&gt; &lt;/ul&gt;&lt;div id=&quot;dollar-builder&quot;&gt;&lt;header&gt;Builder&lt;/header&gt;&lt;ul id=&quot;dollar-module-list&quot;&gt;&lt;/ul&gt;&lt;div&gt;&lt;button onclick=&quot;build();&quot;&gt;Download minified&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;"/>
             <footer lang="it" model="footer"/>
         </content>
@@ -41,6 +57,7 @@
         <content>
             <header lang="it" model="header"/>
             <navigator menu="0"/>
+            <contentcolumn model="path"/>
             <contentcolumn lang="it" value="&lt;h1&gt;Remember the milk (REMI)&lt;/h1&gt; &lt;p&gt;&lt;strong&gt;Remi&lt;/strong&gt; is a web application designed for Firefox OS devices that helps to not forget things.&lt;/p&gt; &lt;p&gt;With Remi you can manage lists of any kind. Choose a list name (e.g. Shopping list, to do, ...); add, edit, remove or check as 'done' list elements in a very simple and intuitive way.&lt;/p&gt; &lt;p&gt;Customize the main screen: choose from a set of page styles.&lt;/p&gt; &lt;p&gt;Remi is available on firefox os marketplace: &lt;a href=&quot;http://marketplace.firefox.com/app/remi/&quot; title=&quot;Remi on firefox marketplace&quot;&gt;click here.&lt;/a&gt;&lt;/p&gt;"/>
             <footer lang="it" model="footer"/>
         </content>
@@ -55,7 +72,7 @@
         <content>
             <header lang="it" value="" model="header"/>
             <navigator menu="0"/>
-            <contentcolumn lang="it" value=""/>
+            <contentcolumn lang="it" value="&lt;h1&gt;Francesco Mchienzi&lt;/h1&gt; &lt;h2&gt;Dati anagrafici&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;Francesco Michienzi&lt;/li&gt; &lt;li&gt;Nato a Firenze il 20/09/1984&lt;/li&gt; &lt;li&gt;Residente in via l'altare 35, 56037 Peccioli, località Legoli, (PI)&lt;/li&gt; &lt;li&gt;Email: francesco.209@gmail.com&lt;/li&gt; &lt;li&gt;Telefono: 3290912837&lt;/li&gt; &lt;/ul&gt; &lt;h2&gt;Esperienza lavorativa&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;&lt;strong&gt;ottobre 2009 - oggi&lt;/strong&gt;: ricercatore presso Abicontrol, reparto Ricerca e sviluppo.&lt;/li&gt; &lt;/ul&gt;&lt;h2&gt;Conoscenze&lt;/h2&gt; &lt;ul&gt; &lt;li&gt;Inglese&lt;/li&gt; &lt;li&gt;Tedesco&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Esperienza extra lavorativa&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Sviluppo di web application per il sistema operativo Firefox OS&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;&lt;h2&gt;Istruzione&lt;/h2&gt; &lt;ul&gt;&lt;li&gt;&lt;strong&gt;2008&lt;/strong&gt;: Laurea in Fisica con 107/110, Università degli studi di Pisa&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;/strong&gt;&lt;strong&gt;2003&lt;/strong&gt;: Diploma di maturità scientifica, Liceo scientifico &quot;A. Checchi&quot;, Fucecchio&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt; &lt;/ul&gt;"/>
             <footer lang="it" value="" model="footer"/>
         </content>
     </page>
