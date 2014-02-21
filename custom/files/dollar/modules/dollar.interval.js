@@ -25,10 +25,10 @@
  */
 
 $['Interval'] = {
-	'id': {},
+	'_id': {},
 	'set': function(id, fn, delay) {
 		$.Interval.clear(id);
-		$.Interval._id[id] = setInterval(fn, delay);
+		$.Interval._id[id] = setInterval(function(){fn();}, delay);
 	},
 	'clear': function(id) {
 		if ($.Interval._id[id]) {

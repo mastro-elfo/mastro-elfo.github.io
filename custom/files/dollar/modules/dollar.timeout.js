@@ -28,7 +28,7 @@ $['Timeout'] = {
 	'_id': {},
 	'set': function(id, fn, delay) {
 		$.Timeout.clear(id);
-		$.Timeout._id[id] = setTimeout(fn, delay);
+		$.Timeout._id[id] = setTimeout(function(){fn();}, delay);
 	},
 	'clear': function(id) {
 		if ($.Timeout._id[id]) {
