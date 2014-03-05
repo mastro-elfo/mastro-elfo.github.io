@@ -52,6 +52,10 @@ var modules = {
 		'title': 'Utf8',
 		'short': 'Encode/decode utf8 string',
 	},
+	'xpath': {
+		'title': 'Xpath',
+		'short': 'Perform an xpath search',
+	},
 };
 
 window.onload = function() {
