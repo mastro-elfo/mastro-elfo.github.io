@@ -20,62 +20,12 @@
  * IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
- * Module: Each
- * Requires: Typeof
+ * Module: Xpath
+ * Requires:
  */
 
-$['Each'] = function(list, callback) {
-	var flags = {
-		'first': true,
-		'last': false
-	};
-	
-	var type = $.Typeof(list);
-	if (type == 'array') {
-		for(var i=0; i<list.length; i++) {
-			flags = {
-				'first': i==0,
-				'last': i==list.length -1
-			};
-			if (callback(list[i], i, flags) === false) {
-				break;
-			}
-		}
-	}
-	else if (typeof list.iterateNext != 'undefined') {
-		var node = list.iterateNext();
-		var i=0;
-		flags.last = null;
-		while(node) {
-			if (callback(node, i, flags) === false) {
-				break;
-			}
-			flags.first = false;
-			node = list.iterateNext();
-		}
-	}
-	else if (type == 'object') {
-		var size = 0;
-		for(var i in list) {
-			size++;
-		}
-		
-		var count = 0;
-		for(var i in list) {
-			flags = {
-				'first': count==0,
-				'last': count==size -1
-			};
-			if (callback(list[i], i, flags) === false) {
-				break;
-			}
-			count++;
-		}
-	}
-	else {
-		callback(list, 0, {
-			'first': true,
-			'last': true
-		});
-	}
+$['Xpath'] = function(xpath, xml, context) {
+	typeof xml == 'undefined'? xml = document : 0;
+	typeof context == 'undefined'? context = xml : 0;
+	return xml.evaluate(xpath, context, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE ,null);
 };
