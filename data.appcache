@@ -1,9 +1,10 @@
 CACHE MANIFEST
-# 2014-02-21 39
+# 2014-03-18 00
 custom/img/facebook.png
 custom/img/linkedin.png
 custom/img/google.png
 custom/img/github.png
+halloween.html
 
 NETWORK:
 *.*
