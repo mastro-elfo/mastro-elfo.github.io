@@ -13,8 +13,8 @@ body {
   color: white;
   font-family: "Diploma", sans-serif;
   font-size: 0px;
-  transition: font-size 1s ease;
   -webkit-transition: font-size 1s ease;
+  transition: font-size 1s ease;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -103,9 +103,14 @@ window.onload = function() {
 	setInterval(idle, 1000);
 	
 	setInterval(function(){
-		var width = window.innerWidth || document.documentElement.offsetWidth || document.body.offsetWidth;
+		var width = parseInt(window.innerWidth || document.documentElement.offsetWidth || document.body.offsetWidth || 640);
 		
-		document.body.style = 'font-size: '+(window.innerWidth /1366 *128)+'px;';
+		if (typeof document.body.style['font-size'] != 'undefined') {
+			document.body.style['font-size'] = (window.innerWidth /1366 *128)+'px';
+		}
+		else {
+			document.body.style = 'font-size: '+(window.innerWidth /1366 *128)+'px';
+		}
 	}, 100);
 }
 		</script>
