@@ -14,6 +14,7 @@ body {
   font-family: "Diploma", sans-serif;
   font-size: 0px;
   transition: font-size 1s ease;
+  -webkit-transition: font-size 1s ease;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -24,6 +25,7 @@ body {
 	background: -moz-radial-gradient(transparent, transparent, transparent, transparent, DarkOrange);
   background: -webkit-radial-gradient(transparent, transparent, transparent, transparent, DarkOrange);
   background: -o-radial-gradient(transparent, transparent, transparent, transparent, DarkOrange);
+  background: -ms-radial-gradient(transparent, transparent, transparent, transparent, DarkOrange);
   background: radial-gradient(transparent, transparent, transparent, transparent, DarkOrange);
 }
 
@@ -61,7 +63,8 @@ p {
   background: -moz-linear-gradient(top, black, white, white, black);
   background: -webkit-linear-gradient(top, black, white, white, black);
   background: -o-linear-gradient(top, black, white, white, black);
-  background: linear-gradient(top, black, white, white, black);
+  background: -ms-linear-gradient(top, black, white, white, black);
+  background: linear-gradient(to top, black, white, white, black);
   color: #222;
 }
 		</style>
