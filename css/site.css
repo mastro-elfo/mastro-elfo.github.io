@@ -1,0 +1,281 @@
+
+/* general css */
+html {
+	font-size: 32px;
+  font-family: arial, sans-serif;
+  color: #222;
+  margin: 0;
+}
+html,
+body {
+	padding: 0;
+}
+body {
+	background-color: #eee;
+  max-width: 2100px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* Useful */
+.clear {
+	display: block;
+  width: 100%;
+  clear: both;
+}
+
+.to-right {
+	float: right;
+  margin: 1em;
+}
+
+/* header */
+body > header {
+  background: url(IMGP2195.JPG) center center no-repeat;
+  min-height: 15em;
+  position: relative;
+}
+body > header:after {
+  content: "";
+	position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5em;
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.75)); 
+}
+/* end header */
+
+/* footer */
+body > footer {
+	font-size: 50%;
+  padding: 1.5em 2em 1em;
+  margin-top: 1em;
+  min-height: 10em;
+  background: #222 url(grain.png);
+  color: #eee;
+  position: relative;
+}
+body > footer:after {
+	content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0.5em;
+  background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+}
+/* end footer */
+
+/* nav */
+body > nav {
+	position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #eee;
+}
+
+body > nav > ul {
+	padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 2em;
+}
+
+body > nav > ul > li {
+	display: block;
+  float: left;
+}
+
+body > nav a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5em 1em;
+  line-height: 1em;
+  display: block;
+  border-radius: 1em;
+}
+
+body > nav a:hover {
+	text-decoration: underline;
+  background-color: #333;
+  color: #eee;
+}
+
+body > nav a:empty {
+	display: none;
+}
+
+body > nav > ul ul {
+	display: none;
+}
+/* END NAV */
+
+/* ARTICLE */
+body > article {
+	padding: 1em 1em 0.5em;
+  position: sticky;
+}
+
+body > article > header {
+	position: sticky;
+  top: 2em;
+  border-bottom: 0.1em solid;
+  background-color: #eee;
+}
+
+body > article > footer:first-of-type {
+	position: absolute;
+  bottom: 0;
+  right: 2em;
+  font-size: 50%;
+  cursor: pointer;
+}
+body > article > footer:first-of-type:hover {
+	text-decoration: underline;
+}
+
+body > article h1 {
+	font-size: inherit;
+}
+body > article p,
+body > article ul {
+	font-size: 80%;
+}
+
+body > article p {
+	text-align: justify;
+}
+
+body > article p img {
+	max-width: 50%;
+  max-height: 4em;
+}
+
+/* END ARTICLE */
+
+/* Welcome message */
+body > header > p {
+	padding: 0;
+  margin: 0;
+  width: 8em;
+  border: 0.2em solid;
+  border-radius: 1em;
+  padding: 0.2em 0.5em;
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  text-align: center;
+  background-color: #eee;
+}
+/* End Welcome message */
+
+/* CONTACTS LIST */
+#contacts-list {
+	list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: block;
+  width: 9em;
+  font-size: 1.5rem;
+}
+#contacts-list li {
+	display: block;
+  float: left;
+  margin: 1em;
+}
+#contacts-list li span {
+	display: none;
+}
+#contacts-list li a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+#contacts-list li img {
+	font-size: 1em;
+  line-height: 1em;
+  height: 1em;
+}
+
+/* qrcode views */
+#contacts-qrcodeview {
+  cursor: pointer;
+}
+#contacts-qrcodelargeview {
+	width: 0;
+  height: 0;
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  transition: all 0.25s ease;
+}
+#contacts-qrcodelargeview.large-view {
+  width: auto;
+  height: calc(100% - 2rem);
+}
+@media only screen and (orientation:portrait) {
+  #contacts-qrcodelargeview.large-view {
+    height: auto;
+    max-height: calc(100% - 2rem);
+    width: 100%;
+  }
+}
+@media only screen and (orientation:landscape) {
+  #contacts-qrcodelargeview.large-view {
+    height: calc(100% - 2rem);
+    width: auto;
+  }
+}
+/* END CONTACT LIST */
+
+
+/* firefox-appslist */
+
+#firefox-appslist,
+#firefox-appslist ul{
+	list-style: none;
+}
+
+#firefox-appslist > li {
+	margin-bottom: 0.5em;
+}
+
+#firefox-appslist ul > li {
+	padding: 0.1em;
+}
+
+#firefox-appslist .online {
+	background: url(online.png) no-repeat left center;
+}
+#firefox-appslist .onmarketplace {
+	background: url(onmarketplace.png) no-repeat left center;
+}
+#firefox-appslist .ongithub {
+	background: url(ongithub.png) no-repeat left center;
+}
+
+#firefox-appslist .online,
+#firefox-appslist .onmarketplace,
+#firefox-appslist .ongithub{
+	padding-left: 1.5em;
+  background-size: auto 1em;
+}
+
+/* END firefox-appslist */
+
+
+
+
+
+
+
+
+
+
+

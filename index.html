@@ -1,1 +1,138 @@
-<!DOCTYPE html><html manifest="data.appcache"><head><meta charset="UTF-8"/><meta name="description" content=""/><meta name="keywords" content=""/><meta name="author" content="Francesco Michienzi"/><title>Francesco Michienzi - personal pages</title><link rel="stylesheet" type="text/css" href="custom/css/main.css"/></head><body><div id="maincontainer"><div id="header"><div>Francesco Michienzi</div> <ul id="header-social"> <li> <a href="http://github.com/mastro-elfo" title="GitHub projects"> <span><img src="custom/img/github.png" alt="GitHub"/></span> </a> </li> <li> <a href="http://www.facebook.com/mastro.elfo" title="Facebook profile"> <span><img src="custom/img/facebook.png" alt="Facebook"/></span> </a> </li> <li> <a href="http://plus.google.com/u/0/+francescomichienzi/" title="Google+ profile"> <span><img src="custom/img/google.png" alt="Google+"/></span> </a> </li> <li> <a href="http://www.linkedin.com/profile/view?id=94757828" title="LinkedIn profile"> <span><img src="custom/img/linkedin.png" alt="LinkedIn"/></span> </a> </li> </ul></div><div id="navigator"><nav><ul class="menu navigator"><li><a href="index.html" title="Home Page"><span>Home</span></a></li><li><a href="projects.html" title="Projects"><span>Projects</span></a></li><li><a href="dollar.html" title="$ project page"><span>$ dollar</span></a></li><li><a href="remi.html" title="Remi project page"><span>Remi</span></a></li><li><a href="chclock.html" title="Chess Clock"><span>ChClock</span></a></li></ul></nav></div><div id="contentcolumn"><h1>Home Page</h1></div><div id="footer"><div>mastro-elfo</div></div></div></body></html>
+<!DOCTYPE html>
+<html appcache="manifest.appcache">
+	<head>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" href="css/site.css"/>
+		<link rel="stylesheet" href="css/layouts.css"/>
+		<link rel="icon" href="css/mastro-elfo-logo.svg"/>
+	</head>
+	<body>
+		<header>
+			<p>Hello, welcome to my home page</p>
+		</header>
+		<nav id="mainmenu">
+			<ul>
+				<li><a href="#mainmenu" title=""></a></li>
+				<li><a href="#home" title="Go back to home page">Home</a></li>
+				<li><a href="#curriculum" title="Click to read my curriculum">Curriculum</a></li>
+				<li><a href="#firefox" title="My webapps for Firefox and Firefox OS">Firefox</a></li>
+				<li><a href="#contacts" title="Contact me">Contacts</a></li>
+			</ul>
+		</nav>
+		
+		<!-- home -->
+		<article id="home">
+			<footer>↑Top↑</footer>
+			<p>
+				My name is Francesco and now I live in Toscana (IT).
+				<!--<img src="css/mastro-elfo-logo.svg" alt="logo" class="to-right"/>-->
+			</p>
+		</article>
+		
+		<!-- curriculum -->
+		<article id="curriculum">
+			<header>
+				Curriculum
+			</header>
+			<footer>↑Top↑</footer>
+			
+			<h1>Study</h1>
+			<ul>
+				<li>Degree in Physics, University of Pisa</li>
+			</ul>
+			
+			<h1>Languages</h1>
+			<ul>
+				<li>Italian: mother language</li>
+				<li>English: good</li>
+				<li>German: I'm actually studying</li>
+			</ul>
+		</article>
+		
+		<!-- firefox -->
+		<article id="firefox">
+			<header>Firefox and Firefox OS</header>
+			<footer>↑Top↑</footer>
+			<p>The following is a list of webapp I made for Firefox and Firefox OS</p>
+			<ul id="firefox-appslist">
+				<li><strong>Remì</strong>: 
+					a useful multi-list manager
+					<ul>
+						<li class="online"><a href="http://mastro-elfo.github.io/Remi/" title="See Remì online">See online</a></li>
+						<li class="onmarketplace"><a href="https://marketplace.firefox.com/app/remi" title="Open Remì pages in firefox's marketplace">See on Marketplace</a></li>
+						<li class="ongithub"><a href="https://github.com/mastro-elfo/Remi" title="See Remì on Github">See on Github</a></li>
+					</ul>
+				</li>
+				<li><strong>Perudo Dice</strong>:
+					play Perudo everywhere
+					<ul>
+						<li class="online"><a href="http://mastro-elfo.github.io/PerudoDice/" title="See Perudo Dice online">See online</a></li>
+						<li class="onmarketplace"><a href="https://marketplace.firefox.com/app/perudo-dice" title="Open Perudo Dice pages in firefox's marketplace">See on Marketplace</a></li>
+						<li class="ongithub"><a href="https://github.com/mastro-elfo/PerudoDice" title="See Perudo Dice on Github">See on Github</a></li>
+					</ul>
+				</li>
+				<li><strong>Jump Horse</strong>:
+					a funny italian card game
+					<ul>
+						<li class="online"><a href="http://mastro-elfo.github.io/JumpHorse/" title="See Jump Horse online">See online</a></li>
+						<li class="onmarketplace"><a href="https://marketplace.firefox.com/app/jump-horse" title="Open Jump Horse pages in firefox's marketplace">See on Marketplace</a></li>
+						<li class="ongithub"><a href="https://github.com/mastro-elfo/JumpHorse" title="See Jump Horse on Github">See on Github</a></li>
+					</ul>
+				</li>
+			</ul>
+		</article>
+		
+		<!-- contacts -->
+		<article id="contacts">
+			<header>
+				Contacts
+			</header>
+			<footer>↑Top↑</footer>
+			<ul id="contacts-list">
+				<li>
+					<a href="mailto:francesco.209@gmail.com" title="Contact me by email" data-id="email">
+						<span>Email</span>
+						<img src="css/email.png" alt="@"/>
+					</a>
+				</li>
+				<li>
+					<a href="https://github.com/mastro-elfo/" title="See my repos on Github" data-id="github">
+						<span>Github</span>
+						<img src="css/github.png" alt="Github"/>
+					</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/u/0/+francescomichienzi" title="See my Google +" data-id="google">
+						<span>Google+</span>
+						<img src="css/google.png" alt="G+"/>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.facebook.com/" title="See my facebook profile" data-id="facebook">
+						<span>Facebook</span>
+						<img src="css/facebook.png" alt="F"/>
+					</a>
+				</li>
+				<li>
+					<a href="http://it.linkedin.com/in/mastroelfo" title="See my curriculum on linkedin" data-id="linkedin">
+						<span>Linkedin</span>
+						<img src="css/linkedin.png" alt="Lin"/>
+					</a>
+				</li>
+				<li>
+					<img src="contents/qrcode.png" alt="qrcode" id="contacts-qrcodeview"/>
+				</li>
+			</ul>
+			<div class="clear"></div>
+		</article>
+		<footer>
+			Copyright &copy; mastro-elfo
+		</footer>
+		<img src="contents/qrcode.png" alt="" id="contacts-qrcodelargeview"/>
+	</body>
+</html>
+<!--<script type="text/javascript" src="js/dollar.min.js"></script>-->
+<script type="text/javascript" src="js/dollar.nc.js"></script>
+
+<script type="text/javascript" src="js/main.js" async="async" defer="defer"></script>
+<script type="text/javascript" src="js/screensaver.js" async="async" defer="defer"></script>
