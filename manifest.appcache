@@ -1,7 +1,10 @@
 CACHE MANIFEST
-#f9w8u0fn9w2u3
+#2094872399er8
 
 CACHE:
 
-OFFLINE:
+NETWORK:
+*
+
+FALLBACK:
 offline.html
