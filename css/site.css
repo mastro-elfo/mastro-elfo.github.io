@@ -82,12 +82,13 @@ body > nav > ul {
 	padding: 0;
   margin: 0;
   list-style: none;
-  height: 2em;
+  position: relative;
 }
 
 body > nav > ul > li {
 	display: block;
   float: left;
+  background-color: #eee;
 }
 
 body > nav a {
@@ -97,6 +98,9 @@ body > nav a {
   line-height: 1em;
   display: block;
   border-radius: 1em;
+  transition:
+    font-size 0.25s ease,
+    transform 0.25s ease;
 }
 
 body > nav a:hover {
@@ -105,8 +109,8 @@ body > nav a:hover {
   color: #eee;
 }
 
-body > nav a:empty {
-	display: none;
+body > nav li:first-child a {
+	font-size: 0;
 }
 
 body > nav > ul ul {
@@ -269,6 +273,7 @@ body > header > p {
 }
 
 /* END firefox-appslist */
+
 
 
 

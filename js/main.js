@@ -29,9 +29,16 @@ $.Dom.addEvent(window, 'load', function(){
 				// alert('end scroll down: '+(window.pageYOffset - toY))
 			}
 		};
-		$.Each($.Dom.select('body > nav a'), function(item){
+		$.Each($.Dom.select('body > nav li a'), function(item){
 			$.Dom.addEvent(item, 'click', function(event){
 				event.preventDefault();
+				var href = event.target.getAttribute('href');
+				var nav = $.Dom.select('body > nav')[0];
+				nav.setAttribute('data-focus', href);
+				if (href == '#mainmenu') {
+					scrollDown(nav.offsetTop);
+					return;
+				}
 				var to = $.Dom.id(item.getAttribute('href').substring(1)).offsetTop;
 				if (window.pageYOffset > to) {
 					setTimeout(function(){
