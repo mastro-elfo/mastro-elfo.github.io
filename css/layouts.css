@@ -1,4 +1,11 @@
 /* MOBILE LAYOUT */
+@media only screen and (max-width: 320px){
+  body > header > p {
+	max-width: 320px;
+	top: 1em;
+  }
+}
+
 @media only screen and (max-width: 767px) {
   body > nav:not([data-focus="#mainmenu"]) > ul > li:first-child {
   	background-color: #eee;

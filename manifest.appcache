@@ -1,20 +1,20 @@
 CACHE MANIFEST
-#2201 10022015
+#1513 11022015
 
 CACHE:
-js/dollar.nc.js
+js/dollar.min.js
 js/main.js
 js/screensaver.js
 
 favicon.ico
 
-css/facebook.png
+css/facebook.gif
 css/github.png
 css/google.png
 css/grain.png
 css/IMGP2195.JPG
 css/linkedin.png
-css/ongithub.png
+css/ongithub.gif
 css/onmarketplace.png
 css/online.png
 
