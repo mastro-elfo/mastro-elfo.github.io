@@ -54,19 +54,6 @@ $.Dom.addEvent(window, 'load', function(){
 		});
 	})();
 	
-	// Show/hide qrcode
-	$.Dom.addEvent('contacts-qrcodeview', 'click', function(){
-		if ($.Dom.hasClass('contacts-qrcodelargeview', 'large-view')) {
-			$.Dom.removeClass('contacts-qrcodelargeview', 'large-view');
-		}
-		else {
-			$.Dom.addClass('contacts-qrcodelargeview', 'large-view');
-		}
-	});
-	$.Dom.addEvent('contacts-qrcodelargeview', 'click', function(){
-		$.Dom.removeClass('contacts-qrcodelargeview', 'large-view');
-	});
-	
 	// Scroll to top
 	(function(){
 		var scroll = function(toY){

@@ -212,31 +212,7 @@ body > header > p {
 #contacts-qrcodeview {
   cursor: pointer;
 }
-#contacts-qrcodelargeview {
-	width: 0;
-  height: 0;
-  position: fixed;
-  top: 2rem;
-  left: 0;
-  transition: all 0.25s ease;
-}
-#contacts-qrcodelargeview.large-view {
-  width: auto;
-  height: calc(100% - 2rem);
-}
-@media only screen and (orientation:portrait) {
-  #contacts-qrcodelargeview.large-view {
-    height: auto;
-    max-height: calc(100% - 2rem);
-    width: 100%;
-  }
-}
-@media only screen and (orientation:landscape) {
-  #contacts-qrcodelargeview.large-view {
-    height: calc(100% - 2rem);
-    width: auto;
-  }
-}
+
 /* END CONTACT LIST */
 
 
