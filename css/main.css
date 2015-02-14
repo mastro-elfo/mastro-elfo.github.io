@@ -1,3 +1,10 @@
 /* This file contains generic useful CSS
  * selectors should be like tag names w/o attributes or generic classes
  */
+
+/* Set 50px height to anchors
+ */
+a[id]:not([href]){
+	display: block;
+	height: 50px;
+}
