@@ -1,148 +1,120 @@
 <!DOCTYPE html>
-<html appcache="manifest.appcache">
+<html lang="en">
 	<head>
-		<meta charset="UTF-8"/>
-		<meta name=viewport content="width=device-width, initial-scale=1"/>
-		<meta name="author" content="Francesco Michienzi (mastro elfo)"/>
-		<meta name="application-name" content="MyWebSite"/>
-		<meta name="description" content="This is my personal website. Navigate it to see who I am and what I do."/>
-		<meta name="keywords" content="personal,web,site,firefox,firefox os,gaia,app,webapp,francesco,michienzi,mastro,elfo"/>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="description" content=""/>
+		<meta name="author" content=""/>
+		<link rel="icon" href="favicon.ico"/>
+	  
+		<title>Francesco Michienzi - Personal web site</title>
+	  
+		<!-- Bootstrap core CSS -->
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+		<!-- Bootstrap theme -->
+		<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
 	</head>
-	<body>
-		<header>
-			<p>Hello, welcome to my home page</p>
-		</header>
-		<nav>
-			<ul>
-				<li><a href="#mainmenu" title="">&hellip;</a></li>
-				<li><a href="#home" title="Go back to home page">Home</a></li>
-				<li><a href="#curriculum" title="Click to read my curriculum">Curriculum</a></li>
-				<li><a href="#firefox" title="My webapps for Firefox and Firefox OS">Firefox</a></li>
-				<li><a href="#contacts" title="Contact me">Contacts</a></li>
-			</ul>
-			<div class="clear"></div>
+	
+	<body role="document">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Mastro Elfo</a>
+				</div>
+					
+					<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="#projects">Projects</a>
+						</li>
+						<li>
+							<a href="#contacts">Contacts</a>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>
 		</nav>
 		
-		<!-- home -->
-		<article id="home">
-			<footer>↑Top↑</footer>
-			<p>
-				My name is Francesco and now I live in Tuscany (IT).
-				<!--<img src="css/mastro-elfo-logo.svg" alt="logo" class="to-right"/>-->
-			</p>
-		</article>
-		
-		<!-- curriculum -->
-		<article id="curriculum">
-			<header>
-				Curriculum
-			</header>
-			<footer>↑Top↑</footer>
+		<div class="container theme-showcase" role="main">
+			<div class="jumbotron">
+				<h1>Francesco Michienzi</h1>
+				<p>My personal website.</p>
+			</div>
 			
-			<h1>Study</h1>
-			<ul>
-				<li>Degree in Physics, University of Pisa</li>
-			</ul>
+			<div class="page-header">
+				<h1>Who am I?</h1>
+			</div>
+			<p>I am a programmer.</p>
+			<p>I currently work in an italia company in the field of view based systems automation.</p>
+			<p>I worked in an italian company in the field of building automation until July 2014.</p>
 			
-			<h1>Languages</h1>
-			<ul>
-				<li>Italian: mother language</li>
-				<li>English: good</li>
-				<li>German: I'm actually studying</li>
+			<div class="page-header" id="projects">
+				<h1>My projects</h1>
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<h4>Remì</h4>
+					<p>Complete and useful multiple list manager.</p>
+					<p>With <abbr title="REmember the MIlk">Remì</abbr> you can fully manage any number of lists with any number of items. Once an item is "done" you can check it and choose if delete or keep for future use.</p>
+					<ul>
+						<li><a href="http://mastro-elfo.github.io/Remi/">View online</a></li>
+						<li><a href="https://github.com/mastro-elfo/Remi">Source on Github</a></li>
+						<li><a href="https://marketplace.firefox.com/app/remi">Firefox marketplace</a></li>
+					</ul>
+				</li>
+				<li class="list-group-item">
+					<h4>Jump Horse!</h4>
+					<p>Funny italian card game typical of Christmas time</p>
+					<ul>
+						<li><a href="http://mastro-elfo.github.io/JumpHorse/">View online</a></li>
+						<li><a href="https://github.com/mastro-elfo/JumpHorse">Source on Github</a></li>
+						<li><a href="https://marketplace.firefox.com/app/jump-horse">Firefox marketplace</a></li>
+					</ul>
+				</li>
+				<li class="list-group-item">
+					<h4>Perudo Dice</h4>
+					<p>Play Perudo everywhere with your friends</p>
+					<ul>
+						<li><a href="http://mastro-elfo.github.io/PerudoDice/">View online</a></li>
+						<li><a href="https://github.com/mastro-elfo/PerudoDice">Source on Github</a></li>
+						<li><a href="https://marketplace.firefox.com/app/perudo-dice">Firefox marketplace</a></li>
+					</ul>
+				</li>
 			</ul>
-		</article>
+			<p></p>
+			
+			<div class="page-header" id="contacts">
+				<h1>Contacts</h1>
+			</div>
+			<p>Currently I live in Peccioli (PI), a small town in Tuscany, Italy</p>
+			<address>
+				<strong>Francesco Michienzi</strong><br/>
+				<a href="mailto:francesco.209@gmail.com">francesco.209@gmail.com</a><br/>
+				<a href="https://github.com/mastro-elfo/" title="See my repos on Github">Github repos</a><br/>
+				<a href="https://plus.google.com/u/0/+francescomichienzi" title="See my Google +">Google+</a><br/>
+				<a href="https://www.facebook.com/mastro.elfo" title="See my facebook profile">Facebook</a><br/>
+				<a href="http://it.linkedin.com/in/mastroelfo" title="See my curriculum on linkedin">Linkedin</a>
+			</address>
+			
+			<footer>
+				Copyright &copy; mastro-elfo
+			</footer>
+		</div>
 		
-		<!-- firefox -->
-		<article id="firefox">
-			<header>Firefox and Firefox OS</header>
-			<footer>↑Top↑</footer>
-			<p>The following is a list of webapp I made for Firefox and Firefox OS</p>
-			<ul id="firefox-appslist">
-				<li><strong>Remì</strong>: 
-					a useful multi-list manager
-					<ul>
-						<li class="online"><a href="http://mastro-elfo.github.io/Remi/" title="See Remì online">See online</a></li>
-						<li class="onmarketplace"><a href="https://marketplace.firefox.com/app/remi" title="Open Remì pages in firefox's marketplace">See on Marketplace</a></li>
-						<li class="ongithub"><a href="https://github.com/mastro-elfo/Remi" title="See Remì on Github">See on Github</a></li>
-					</ul>
-				</li>
-				<li><strong>Perudo Dice</strong>:
-					play Perudo everywhere
-					<ul>
-						<li class="online"><a href="http://mastro-elfo.github.io/PerudoDice/" title="See Perudo Dice online">See online</a></li>
-						<li class="onmarketplace"><a href="https://marketplace.firefox.com/app/perudo-dice" title="Open Perudo Dice pages in firefox's marketplace">See on Marketplace</a></li>
-						<li class="ongithub"><a href="https://github.com/mastro-elfo/PerudoDice" title="See Perudo Dice on Github">See on Github</a></li>
-					</ul>
-				</li>
-				<li><strong>Jump Horse</strong>:
-					a funny italian card game
-					<ul>
-						<li class="online"><a href="http://mastro-elfo.github.io/JumpHorse/" title="See Jump Horse online">See online</a></li>
-						<li class="onmarketplace"><a href="https://marketplace.firefox.com/app/jump-horse" title="Open Jump Horse pages in firefox's marketplace">See on Marketplace</a></li>
-						<li class="ongithub"><a href="https://github.com/mastro-elfo/JumpHorse" title="See Jump Horse on Github">See on Github</a></li>
-					</ul>
-				</li>
-			</ul>
-		</article>
-		
-		<!-- contacts -->
-		<article id="contacts">
-			<header>
-				Contacts
-			</header>
-			<footer>↑Top↑</footer>
-			<ul id="contacts-list">
-				<li>
-					<a href="mailto:francesco.209@gmail.com" title="Contact me by email" data-id="email">
-						<span>Email</span>
-						<img src="css/email.png" alt="@"/>
-					</a>
-				</li>
-				<li>
-					<a href="https://github.com/mastro-elfo/" title="See my repos on Github" data-id="github">
-						<span>Github</span>
-						<img src="css/github.png" alt="Github"/>
-					</a>
-				</li>
-				<li>
-					<a href="https://plus.google.com/u/0/+francescomichienzi" title="See my Google +" data-id="google">
-						<span>Google+</span>
-						<img src="css/google.png" alt="G+"/>
-					</a>
-				</li>
-				<li>
-					<a href="https://www.facebook.com/" title="See my facebook profile" data-id="facebook">
-						<span>Facebook</span>
-						<img src="css/facebook.gif" alt="F"/>
-					</a>
-				</li>
-				<li>
-					<a href="http://it.linkedin.com/in/mastroelfo" title="See my curriculum on linkedin" data-id="linkedin">
-						<span>Linkedin</span>
-						<img src="css/linkedin.png" alt="Lin"/>
-					</a>
-				</li>
-				<li>
-					<a href="qrcode.html" title="Click to view the qrcode of this site">
-						<img src="contents/qrcode.png" alt="qrcode"/>
-					</a>
-				</li>
-			</ul>
-			<div class="clear"></div>
-		</article>
-		<footer>
-			Copyright &copy; mastro-elfo
-		</footer>
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 	</body>
 </html>
-
-<link rel="stylesheet" href="css/site.css"/>
-<link rel="stylesheet" href="css/layouts.css"/>
-
-<!--<script type="text/javascript" src="js/dollar.nc.js"></script>-->
-<script type="text/javascript" src="js/dollar.min.js"></script>
-
-<script type="text/javascript" src="js/main.js" async="async" defer="defer"></script>
-<script type="text/javascript" src="js/screensaver.js" async="async" defer="defer"></script>
-
-<link rel="shortcut icon" type="image/png" href="favicon.ico"/>
