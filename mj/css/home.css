@@ -3,7 +3,7 @@ body > header {
   position: relative;
   overflow: hidden;
   background-color: #eee;
-  background: #eee url(css/header.png) no-repeat 50% 13rem;
+  background: #eee url(header.png) no-repeat 50% 13rem;
 }
 
 
@@ -36,4 +36,5 @@ body > section > article > div.more::after {
 	content: "\2022\2022\27a4";
   color: green;
 }
+
 
