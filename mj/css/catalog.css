@@ -1,0 +1,31 @@
+body > section > h1 {
+	margin-bottom: 0;
+}
+
+body > section > article {
+	background-color: #eee;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+body > section > article > h2 {
+	font-weight: normal;
+  margin: 0;
+  padding: 0;
+  position: sticky;
+  top: 1em;
+  background-color: #eee;
+}
+
+body > section > article > p:last-child {
+	margin-bottom: 0;
+}
+
+body > section > article > div.more {
+	text-align: right;
+}
+body > section > article > div.more::after {
+	content: "\2022\2022\27a4";
+  color: green;
+}
+

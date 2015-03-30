@@ -1,0 +1,48 @@
+
+#social {
+	font-size: 64px;
+  margin-top: 0;
+}
+
+#social > a {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+	background: transparent no-repeat;
+}
+
+#social > a#social-facebook {
+	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/02_facebook.png);
+}
+#social > a#social-facebook:hover {
+	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/02_facebook.png);
+}
+
+#social > a#social-google {
+	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/14_google+.png);
+}
+#social > a#social-google:hover {
+	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/14_google+.png);
+}
+
+#social > a#social-twitter {
+	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/01_twitter.png);
+}
+#social > a#social-twitter:hover {
+	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/01_twitter.png);
+}
+
+#social > a#social-linkedin {
+	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/07_linkedin.png);
+}
+#social > a#social-linkedin:hover {
+	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/07_linkedin.png);
+}
+
+#social > a#social-email {
+	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/20_sparow.png);
+}
+#social > a#social-email:hover {
+	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/20_sparow.png);
+}
+

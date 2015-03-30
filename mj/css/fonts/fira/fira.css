@@ -1,0 +1,141 @@
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-Hair.eot');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-HairItalic.eot');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-UltraLight.eot');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-UltraLightItalic.eot');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-Light.eot');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-LightItalic.eot');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-Regular.eot');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-Italic.eot');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-Medium.eot');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-MediumItalic.eot');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-SemiBold.eot');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-SemiBoldItalic.eot');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-Bold.eot');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-BoldItalic.eot');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-ExtraBold.eot');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-ExtraBoldItalic.eot');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-Heavy.eot');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Sans';
+    src: url('eot/FiraSans-HeavyItalic.eot');
+    font-weight: 900;
+    font-style: italic;
+}
+
+
+@font-face{
+    font-family: 'Fira Mono';
+    src: url('eot/FiraMono-Regular.eot');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'Fira Mono';
+    src: url('eot/FiraMono-Bold.eot');
+    font-weight: 600;
+    font-style: normal;
+}
+

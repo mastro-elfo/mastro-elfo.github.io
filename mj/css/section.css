@@ -1,0 +1,43 @@
+
+body > section {
+	padding: 0 1em;
+  min-height: 400px;
+  font-size: 125%;
+}
+
+body > section > article a {
+	color: green;
+}
+
+body > section > a:empty {
+	height: 1em;
+  display: block;
+}
+
+body > section > h1 {
+	color: #c00;
+  text-transform: uppercase;
+  position: relative;
+}
+
+body > section >  h2 {
+	font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+body > section > article > p {
+	text-align: justify;
+  margin-bottom: 0;
+}
+
+body > section > article > p > img {
+	float: right;
+  margin: 1em;
+}
+
+body > section > article > p > strong {
+	color: #c00;
+}
+
+

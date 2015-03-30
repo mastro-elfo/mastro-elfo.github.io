@@ -1,0 +1,39 @@
+body > header {
+	height: 20em;
+  position: relative;
+  overflow: hidden;
+  background-color: #eee;
+  background: #eee url(css/header.png) no-repeat 50% 13rem;
+}
+
+
+@media (max-width: 400px) {
+	body > header {
+  	background-size: 100%;
+	}
+}
+
+body > section > article {
+	background-color: #eee;
+  padding: 1em;
+  margin: 1em 0;
+}
+
+body > section > article > h2 {
+	font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+body > section > article > p:last-child {
+	margin-bottom: 0;
+}
+
+body > section > article > div.more {
+	text-align: right;
+}
+body > section > article > div.more::after {
+	content: "\2022\2022\27a4";
+  color: green;
+}
+

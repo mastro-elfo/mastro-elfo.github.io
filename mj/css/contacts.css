@@ -1,0 +1,60 @@
+
+#contact ul {
+	list-style: none;
+  padding: 0;
+}
+
+#contact li {
+	margin-top: 0em;
+}
+
+#contact label {
+	position: relative;
+}
+
+#contact label > span {
+	display: inline-block;
+  width: 5em;
+}
+
+#contact label > input,
+#contact label > textarea {
+	font-size: inherit;
+  font-family: inherit;
+  resize: none;
+  width: 95%;
+  margin-left: 5%;
+}
+
+#contact label > input[required] + span:after,
+#contact label > textarea[required] + span:after {
+  content: "*";
+  color: #c00;
+  position: absolute;
+  left: 0em;
+  top: 1.5em;
+}
+
+#contact input[type="reset"],
+#contact input[type="submit"] {
+	font-size: inherit;
+  font-family: inherit;
+  color: white;
+  border: none;
+  border-radius: 1em;
+  max-width: 45%;
+  padding: 0.2em 0.5em;
+  display: block;
+  white-space: no-wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#contact input[type="reset"] {
+  float: left;
+  background-color: #c00;
+}
+#contact input[type="submit"] {
+  float: right;
+  background-color: green;
+}
