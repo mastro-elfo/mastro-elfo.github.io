@@ -12,37 +12,36 @@
 }
 
 #social > a#social-facebook {
-	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/02_facebook.png);
+	background-image: url(social-icons/Flat_Social_Style_04/02_facebook.gif);
 }
 #social > a#social-facebook:hover {
-	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/02_facebook.png);
+	background-image: url(social-icons/Flat_Social_Style_01/02_facebook.gif);
 }
 
 #social > a#social-google {
-	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/14_google+.png);
+	background-image: url(social-icons/Flat_Social_Style_04/14_google+.gif);
 }
 #social > a#social-google:hover {
-	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/14_google+.png);
+	background-image: url(social-icons/Flat_Social_Style_01/14_google+.gif);
 }
 
 #social > a#social-twitter {
-	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/01_twitter.png);
+	background-image: url(social-icons/Flat_Social_Style_04/01_twitter.gif);
 }
 #social > a#social-twitter:hover {
-	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/01_twitter.png);
+	background-image: url(social-icons/Flat_Social_Style_01/01_twitter.gif);
 }
 
 #social > a#social-linkedin {
-	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/07_linkedin.png);
+	background-image: url(social-icons/Flat_Social_Style_04/07_linkedin.gif);
 }
 #social > a#social-linkedin:hover {
-	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/07_linkedin.png);
+	background-image: url(social-icons/Flat_Social_Style_01/07_linkedin.gif);
 }
 
 #social > a#social-email {
-	background-image: url(social-icons/Flat_Social_Style_04/PNG/64/20_sparow.png);
+	background-image: url(social-icons/Flat_Social_Style_04/20_sparow.gif);
 }
 #social > a#social-email:hover {
-	background-image: url(social-icons/Flat_Social_Style_01/PNG/64/20_sparow.png);
+	background-image: url(social-icons/Flat_Social_Style_01/20_sparow.gif);
 }
-
