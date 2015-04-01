@@ -17,6 +17,11 @@ body > section > article > h2 {
   background-color: #eee;
 }
 
+body > section > article > h2 > strong {
+	color: #c00;
+  font-variant: small-caps;
+}
+
 body > section > article > p:last-child {
 	margin-bottom: 0;
 }
@@ -27,5 +32,10 @@ body > section > article > div.more {
 body > section > article > div.more::after {
 	content: "\2022\2022\27a4";
   color: green;
+}
+
+body > section > article > p > img {
+	max-width: 50%;
+  max-height: 6em;
 }
 

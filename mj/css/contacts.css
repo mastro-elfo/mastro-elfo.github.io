@@ -50,6 +50,10 @@
   overflow: hidden;
 }
 
+#buttons {
+	max-width: 600px;
+  margin: 0 auto;
+}
 #contact input[type="reset"] {
   float: left;
   background-color: #c00;
