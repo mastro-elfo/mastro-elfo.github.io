@@ -1,4 +1,17 @@
+body > header {
+	height: 20em;
+	position: relative;
+	overflow: hidden;
+	background-color: #eee;
+	background: #eee url(header.png) no-repeat 50% 13rem;
+}
 
+
+@media (max-width: 400px) {
+	body > header {
+		background-size: 100%;
+	}
+}
 
 body > section > article {
 	background-color: #eee;
