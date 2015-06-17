@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+		<div>
+			<div class="center">
+				<div id="display"></div>
+			</div>
+			
+			<div class="center">
+				<input id="text" placeholder="Write here or click a button..." onkeyup="shift.on=true;shift.value=0;"/>
+				<input type="button" value="Get" onclick="getBitmap()"/>
+				<input type="button" value="Clear" onclick="clearDisplay();$('text').value='';"/>
+			</div>
+			
+			<div class="center" id="charlist"></div>
+		</div>
+	</body>
+</html>
+
+<script>
+	function $(id) {
+		return document.getElementById(id);
+	}
+	
+	(function(){
+		var display = $('display');
+		display.innerHTML = '';
+		
+		for(var i=0; i<7; i++) {
+			var o = '';
+			for(var j=0; j<25; j++) {
+				o += '<div onclick="toggle(this)"></div>';
+			}
+			display.innerHTML += '<div>' +o+ '</div>';
+		}
+	})();
+	
+	function toggle(pixel) {
+		shift.roff = true;
+		shift.on = false;
+		shift.value = 0;
+		
+		pixel.getAttribute('data-paint') ?
+			pixel.removeAttribute('data-paint') :
+			pixel.setAttribute('data-paint', true);
+	}
+	
+	var charMap = {
+		'0': [
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,true ,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'1': [
+			[false,true ,false],
+			[true ,true ,false],
+			[false,true ,false],
+			[false,true ,false],
+			[false,true ,false],
+			[false,true ,false],
+			[true ,true ,true ]
+		],
+		'2': [
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[false,false,false,false,true ],
+			[false,false,false,true ,false],
+			[false,false,true ,false,false],
+			[false,true ,false,false,false],
+			[true ,true ,true ,true ,true ]
+		],
+		'3': [
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[false,false,false,false,true ],
+			[false,false,false,true ,false],
+			[false,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'4': [
+			[false,false,false,true ,false],
+			[false,false,true ,true ,false],
+			[false,true ,false,true ,false],
+			[true ,false,false,true ,false],
+			[true ,true ,true ,true ,true ],
+			[false,false,false,true ,false],
+			[false,false,false,true ,false]
+		],
+		'5': [
+			[true ,true ,true ,true ,true ],
+			[true ,false,false,false,false],
+			[true ,true ,true ,true ,false],
+			[false,false,false,false,true ],
+			[false,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'6': [
+			[false,false,true ,true ,false],
+			[false,true ,false,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'7': [
+			[true ,true ,true ,true ,true ],
+			[false,false,false,false,true ],
+			[false,false,false,true ,false],
+			[false,false,false,true ,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false]
+		],
+		'8': [
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'9': [
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,true ],
+			[false,false,false,false,true ],
+			[false,false,false,true ,false],
+			[false,true ,true ,false,false]
+		],
+		':': [
+			[false],
+			[false],
+			[true ],
+			[false],
+			[true ],
+			[false],
+			[false]
+		],
+		' ': [
+			[false],
+			[false],
+			[false],
+			[false],
+			[false],
+			[false],
+			[false]
+		],
+		'.': [
+			[false],
+			[false],
+			[false],
+			[false],
+			[false],
+			[false],
+			[true ]
+		],
+		',': [
+			[false],
+			[false],
+			[false],
+			[false],
+			[false],
+			[true ],
+			[true ]
+		],
+		';': [
+			[false],
+			[false],
+			[false],
+			[true ],
+			[false],
+			[true ],
+			[true ]
+		],
+		'?' : [
+			[false,true ,true ,false],
+			[true ,false,false,true ],
+			[false,false,false,true ],
+			[false,false,true ,false],
+			[false,true ,false,false],
+			[false,false,false,false],
+			[false,true ,false,false]
+		],
+		'!' : [
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[false],
+			[true ]
+		],
+		'/' : [
+			[false,false,false,false,true ],
+			[false,false,false,false,true ],
+			[false,false,false,true ,false],
+			[false,false,true ,false,false],
+			[false,true ,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false]
+		],
+		'|' : [
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[true ]
+		],
+		'\\' : [
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[false,true ,false,false,false],
+			[false,false,true ,false,false],
+			[false,false,false,true ,false],
+			[false,false,false,false,true ],
+			[false,false,false,false,true ]
+		],
+		'\'': [
+			[true ],
+			[true ],
+			[false],
+			[false],
+			[false],
+			[false],
+			[false]
+		],
+		'"': [
+			[true ,false,true ],
+			[true ,false,true ],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false]
+		],
+		'*' : [
+			[false,false,true ,false,false],
+			[true ,false,true ,false,true ],
+			[false,true ,true ,true ,false],
+			[false,false,true ,false,false],
+			[false,true ,true ,true ,false],
+			[true ,false,true ,false,true ],
+			[false,false,true ,false,false]
+		],
+		'-' : [
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[true ,true ,true ],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false]
+		],
+		'+' : [
+			[false,false,false,false,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false],
+			[true ,true ,true ,true ,true ],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false],
+			[false,false,false,false,false]
+		],
+		'=' : [
+			[false,false,false,false],
+			[false,false,false,false],
+			[true ,true ,true ,true ],
+			[false,false,false,false],
+			[true ,true ,true ,true ],
+			[false,false,false,false],
+			[false,false,false,false]
+		],
+		'(' : [
+			[false,true ],
+			[true ,false],
+			[true ,false],
+			[true ,false],
+			[true ,false],
+			[true ,false],
+			[false,true ]
+		],
+		'[' : [
+			[true ,true ],
+			[true ,false],
+			[true ,false],
+			[true ,false],
+			[true ,false],
+			[true ,false],
+			[true ,true ]
+		],
+		'{' : [
+			[false,false,true ],
+			[false,true ,false],
+			[false,true ,false],
+			[true ,false,false],
+			[false,true ,false],
+			[false,true ,false],
+			[false,false,true ]
+		],
+		'}' : [
+			[true ,false,false],
+			[false,true ,false],
+			[false,true ,false],
+			[false,false,true ],
+			[false,true ,false],
+			[false,true ,false],
+			[true ,false,false]
+		],
+		']' : [
+			[true ,true ],
+			[false,true ],
+			[false,true ],
+			[false,true ],
+			[false,true ],
+			[false,true ],
+			[true ,true ]
+		],
+		')' : [
+			[true ,false],
+			[false,true ],
+			[false,true ],
+			[false,true ],
+			[false,true ],
+			[false,true ],
+			[true ,false]
+		],
+		'°' : [
+			[false,true ,false],
+			[true ,false,true ],
+			[false,true ,false],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false]
+		],
+		'_' : [
+			[false,false,false,false],
+			[false,false,false,false],
+			[false,false,false,false],
+			[false,false,false,false],
+			[false,false,false,false],
+			[false,false,false,false],
+			[true ,true ,true ,true ]
+		],
+		'~' : [
+			[false,false,false,false,false],
+			[false,false,false,false,false],
+			[false,false,false,true ,false],
+			[true ,false,true ,false,true ],
+			[false,true ,false,false,false],
+			[false,false,false,false,false],
+			[false,false,false,false,false]
+		],
+		'^' : [
+			[false,true ,false],
+			[true ,false,true ],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false]
+		],
+		'#' : [
+			[false,false,false,false,false],
+			[false,false,false,false,false],
+			[false,true ,false,true ,false],
+			[true ,true ,true ,true ,true ],
+			[false,true ,false,true ,false],
+			[true ,true ,true ,true ,true ],
+			[false,true ,false,true ,false]
+		],
+		'@' : [
+			[false,false,true ,true ,true ,false],
+			[false,true ,false,false,false,true ],
+			[true ,false,false,true ,false,true ],
+			[true ,false,true ,false,true ,true ],
+			[true ,false,false,true ,false,false],
+			[false,true ,false,false,false,false],
+			[false,false,true ,true ,false,false]
+		],
+		'$' : [
+			[false,true ,true ,true ,false],
+			[true ,false,true ,false,true ],
+			[true ,false,true ,false,false],
+			[false,true ,true ,true ,false],
+			[false,false,true ,false,true ],
+			[true ,false,true ,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'£' : [
+			[false,false,true ,true ,false],
+			[false,true ,false,false,true ],
+			[true ,false,false,false,false],
+			[true ,true ,true ,true ,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,true ,true ,true ]
+		],
+		'€' : [
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,true ,true ,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,true ,false,false],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'a': [
+			[false,false,false,false],
+			[false,false,false,false],
+			[false,true ,true ,false],
+			[false,false,false,true],
+			[false,true ,true ,true ],
+			[true ,false,false,true ],
+			[false,true ,true ,true]
+		],
+		'b': [
+			[false,false,false,false],
+			[true ,false,false,false],
+			[true ,false,false,false],
+			[true ,false,false,false],
+			[true ,true ,true ,false],
+			[true ,false,false,true ],
+			[false,true ,true ,false]
+		],
+		'c': [
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[false,true ,true ],
+			[true ,false,false],
+			[true ,false,false],
+			[false,true ,true ]
+		],
+		'd': [
+			[false,false,false,false],
+			[false,false,false,true ],
+			[false,false,false,true ],
+			[false,false,false,true ],
+			[false,true ,true ,true ],
+			[true ,false,false,true ],
+			[false,true ,true ,false]
+		],
+		'e': [
+			[false,false,false,false],
+			[false,false,false,false],
+			[false,true ,true ,false],
+			[true ,false,false,true ],
+			[true ,true ,true ,false],
+			[true ,false,false,false],
+			[false,true ,true ,false]
+		],
+		'f': [
+			[false,false,false],
+			[false,false,true ],
+			[false,true ,false],
+			[true ,true ,true ],
+			[false,true ,false],
+			[false,true ,false],
+			[false,true ,false]
+		],
+		'g': [
+			[false,false,false,false],
+			[false,false,false,true ],
+			[false,true ,true ,true ],
+			[true ,false,false,true ],
+			[false,true ,true ,true ],
+			[false,false,false,true ],
+			[false,true ,true ,false]
+		],
+		'h': [
+			[false,false,false],
+			[true ,false,false],
+			[true ,false,false],
+			[true ,false,false],
+			[true ,true ,false],
+			[true ,false,true ],
+			[true ,false,true ]
+		],
+		'i': [
+			[false],
+			[false],
+			[true ],
+			[false],
+			[true ],
+			[true ],
+			[true ]
+		],
+		'j': [
+			[false,false,false,false,false],
+			[false,true ,false,false,false],
+			[false,false,false,false,false],
+			[false,true ,false,false,false],
+			[false,true ,false,false,false],
+			[false,true ,false,false,false],
+			[true ,false,false,false,false]
+		],
+		'k': [
+			[false,false,false],
+			[true ,false,false],
+			[true ,false,false],
+			[true ,false,true ],
+			[true ,true ,false],
+			[true ,true ,false],
+			[true ,false,true ]
+		],
+		'l': [
+			[false],
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[true ]
+		],
+		'm': [
+			[false,false,false,false,false],
+			[false,false,false,false,false],
+			[false,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,false,true ,false],
+			[true ,false,true ,false,true ],
+			[true ,false,true ,false,true ]
+		],
+		'n': [
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[true ,false,false],
+			[true ,true ,false],
+			[true ,false,true ],
+			[true ,false,true ]
+		],
+		'o': [
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[false,true ,false],
+			[true ,false,true ],
+			[true ,false,true ],
+			[false,true ,false]
+		],
+		'p': [
+			[false,false,false],
+			[false,false,false],
+			[false,true ,false],
+			[true ,false,true ],
+			[true ,true ,false],
+			[true ,false,false],
+			[true ,false,false]
+		],
+		'q': [
+			[false,false,false],
+			[false,false,false],
+			[false,true ,false],
+			[true ,false,true ],
+			[false,true ,true ],
+			[false,false,true ],
+			[false,false,true ]
+		],
+		'r': [
+			[false,false],
+			[false,false],
+			[true ,false],
+			[true ,true ],
+			[true ,false],
+			[true ,false],
+			[true ,false]
+		],
+		's': [
+			[false,false,false],
+			[false,false,false],
+			[false,true ,true ],
+			[true ,false,false],
+			[false,true ,false],
+			[false,false,true ],
+			[true ,true ,false]
+		],
+		't': [
+			[false,false,false],
+			[false,true ,false],
+			[true ,true ,true ],
+			[false,true ,false],
+			[false,true ,false],
+			[false,true ,false],
+			[false,false,true ]
+		],
+		'u': [
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[true ,false,true ],
+			[true ,false,true ],
+			[true ,false,true ],
+			[false,true ,true ]
+		],
+		'v': [
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[true ,false,true ],
+			[true ,false,true ],
+			[true ,false,true ],
+			[false,true ,false]
+		],
+		'w': [
+			[false,false,false,false,false],
+			[false,false,false,false,false],
+			[false,false,false,false,false],
+			[true ,false,false,false,true ],
+			[true ,false,true ,false,true ],
+			[true ,false,true ,false,true ],
+			[false,true ,false,true ,false]
+		],
+		'x': [
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[true ,false,true ],
+			[false,true ,false],
+			[true ,false,true ]
+		],
+		'y': [
+			[false,false,false],
+			[false,false,false],
+			[false,false,false],
+			[true ,false,true ],
+			[false,true ,false],
+			[false,true ,false],
+			[true ,false,false]
+		],
+		'z': [
+			[false,false,false,false,false],
+			[false,false,false,false,false],
+			[false,false,false,false,false],
+			[true ,true ,true ,false,false],
+			[false,true ,false,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,true ,false,false]
+		],
+		'A':[
+			[false,false,true ,false,false],
+			[false,true ,false,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,true ,true ,true ,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ]
+		],
+		'B' : [
+			[true ,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,true ,true ,true ,false]
+		],
+		'C' : [
+			[false,false,true ,true ,true ],
+			[false,true ,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[false,true ,false,false,false],
+			[false,false,true ,true ,true ]
+		],
+		'D' : [
+			[true ,true ,true ,false,false],
+			[true ,false,false,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,true ,false],
+			[true ,true ,true ,false,false]
+		],
+		'E' : [
+			[true ,true ,true ,true ,true ],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,true ,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,true ,true ,true ]
+		],
+		'F' : [
+			[true ,true ,true ,true ,true ],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,true ,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false]
+		],
+		'G' : [
+			[false,false,true ,true ,false],
+			[false,true ,false,false,true ],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,true ,true ],
+			[false,true ,false,false,true ],
+			[false,false,true ,true ,true ]
+		],
+		'H' : [
+			[true ,false,false,true ],
+			[true ,false,false,true ],
+			[true ,false,false,true ],
+			[true ,true ,true ,true ],
+			[true ,false,false,true ],
+			[true ,false,false,true ],
+			[true ,false,false,true ]
+		],
+		'I' : [
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[true ],
+			[true ]
+		],
+		'J' : [
+			[true ,true ,true ,true ,true ],
+			[false,false,false,true ,false],
+			[false,false,false,true ,false],
+			[false,false,false,true ,false],
+			[false,false,false,true ,false],
+			[true ,false,false,true ,false],
+			[false,true ,true ,false,false]
+		],
+		'K' : [
+			[true ,false,false,false],
+			[true ,false,false,true ],
+			[true ,false,true ,false],
+			[true ,true ,false,false],
+			[true ,true ,false,false],
+			[true ,false,true ,false],
+			[true ,false,false,true ]
+		],
+		'L' : [
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,true ,true ,true ]
+		],
+		'M' : [
+			[true ,false,false,false,true ],
+			[true ,true ,false,true ,true ],
+			[true ,false,true ,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ]
+		],
+		'N' : [
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,true ,false,false,true ],
+			[true ,false,true ,false,true ],
+			[true ,false,false,true ,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ]
+		],
+		'O' : [
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'P' : [
+			[true ,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,true ,true ,true ,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false],
+			[true ,false,false,false,false]
+		],
+		'Q' : [
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,true ,false,true ],
+			[true ,false,false,true ,false],
+			[false,true ,true ,false,true ]
+		],
+		'R' : [
+			[true ,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,true ,true ,true ,false],
+			[true ,true ,false,false,false],
+			[true ,false,true ,false,false],
+			[true ,false,false,true ,false]
+		],
+		'S' : [
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,false],
+			[false,true ,true ,true ,false],
+			[false,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'T' : [
+			[true ,true ,true ,true ,true ],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false]
+		],
+		'U' : [
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'V' : [
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,false,true ,false],
+			[false,true ,false,true ,false],
+			[false,false,true ,false,false]
+		],
+		'W' : [
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,true ,false,true ],
+			[true ,true ,false,true ,true ],
+			[true ,false,false,false,true ]
+		],
+		'X' : [
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,false,true ,false],
+			[false,false,true ,false,false],
+			[false,true ,false,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ]
+		],
+		'Y' : [
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,false,true ,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false],
+			[false,false,true ,false,false]
+		],
+		'Z' : [
+			[true ,true ,true ,true ,true ],
+			[false,false,false,false,true ],
+			[false,false,false,true ,false],
+			[false,false,true ,false,false],
+			[false,true ,false,false,false],
+			[true ,false,false,false,false],
+			[true ,true ,true ,true ,true ]
+		],
+		'à' : [
+			[false,false,true ,false],
+			[false,false,false,true ],
+			[false,true ,true ,false],
+			[false,false,false,true ],
+			[false,true ,true ,true ],
+			[true ,false,false,true ],
+			[false,true ,true ,true ]
+		],
+		'è' : [
+			[false,false,true ,false],
+			[false,false,false,true ],
+			[false,true ,true ,false],
+			[true ,false,false,true ],
+			[true ,true ,true ,false],
+			[true ,false,false,false],
+			[false,true ,true ,false]
+		],
+		'é' : [
+			[false,false,false,true ],
+			[false,false,true ,false],
+			[false,true ,true ,false],
+			[true ,false,false,true ],
+			[true ,true ,true ,false],
+			[true ,false,false,false],
+			[false,true ,true ,false]
+		],
+		'ì' : [
+			[false,false],
+			[true ,false],
+			[false,true ],
+			[false,false],
+			[false,true ],
+			[false,true ],
+			[false,true ]
+		],
+		'ò' : [
+			[true ,false,false],
+			[false,true ,false],
+			[false,false,false],
+			[false,true ,false],
+			[true ,false,true ],
+			[true ,false,true ],
+			[false,true ,false]
+		],
+		'ù' : [
+			[true ,false,false],
+			[false,true ,false],
+			[false,false,false],
+			[true ,false,true ],
+			[true ,false,true ],
+			[true ,false,true ],
+			[false,true ,true ]
+		],
+		'È' : [
+			[false,true ,false,false],
+			[false,false,true ,false],
+			[true ,true ,true ,true ],
+			[true ,false,false,false],
+			[true ,true ,true ,false],
+			[true ,false,false,false],
+			[true ,true ,true ,true ]
+		],
+		'ä' : [
+			[false,true ,false,true ],
+			[false,false,false,false],
+			[false,true ,true ,false],
+			[false,false,false,true ],
+			[false,true ,true ,true ],
+			[true ,false,false,true ],
+			[false,true ,true ,true ]
+		],
+		'ö' : [
+			[false,false,false],
+			[true ,false,true ],
+			[false,false,false],
+			[false,true ,false],
+			[true ,false,true ],
+			[true ,false,true ],
+			[false,true ,false]
+		],
+		'ü' : [
+			[false,false,false],
+			[true ,false,true ],
+			[false,false,false],
+			[true ,false,true ],
+			[true ,false,true ],
+			[true ,false,true ],
+			[false,true ,true ]
+		],
+		'Ä' : [
+			[false,true ,false,true ,false],
+			[false,false,true ,false,false],
+			[false,true ,false,true ,false],
+			[true ,false,false,false,true ],
+			[true ,true ,true ,true ,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ]
+		],
+		'Ö' : [
+			[false,true ,false,true ,false],
+			[false,false,false,false,false],
+			[false,true ,true ,true ,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'Ü' : [
+			[false,true ,false,true ,false],
+			[false,false,false,false,false],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[true ,false,false,false,true ],
+			[false,true ,true ,true ,false]
+		],
+		'ß' : [
+			[false,true ,true ,false],
+			[true ,false,false,true ],
+			[true ,false,false,true ],
+			[true ,false,true ,false],
+			[true ,false,false,true ],
+			[true ,false,false,true ],
+			[true ,false,true ,false]
+		],
+		'battery100': [
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false]
+		],
+		'battery50': [
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false]
+		],
+		'battery0': [
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false],
+			[true ,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false]
+		],
+		'battery+': [
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,true ,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false,false,true ,false,false,false,false,false,false,false,false,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,true ,false]
+		],
+		'PODIUM' : [
+			[false,false,false,false,false,false],
+			[false,false,true ,true ,false,false],
+			[false,false,true ,true ,false,false],
+			[false,false,true ,true ,true ,true ],
+			[false,false,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ]
+		],
+		'PLAY' : [
+			[false,false,false],
+			[true ,false,false],
+			[true ,true ,false],
+			[true ,true ,true ],
+			[true ,true ,false],
+			[true ,false,false],
+			[false,false,false]
+		],
+		'PAUSE' : [
+			[false,false,false],
+			[false,false,false],
+			[true ,false,true ],
+			[true ,false,true ],
+			[true ,false,true ],
+			[false,false,false],
+			[false,false,false]
+		],
+		'STOP' : [
+			[false,false,false],
+			[false,false,false],
+			[true ,true ,true ],
+			[true ,true ,true ],
+			[true ,true ,true ],
+			[false,false,false],
+			[false,false,false]
+		],
+		'SKIPF' : [
+			[false,false,false,false],
+			[true ,false,false,true ],
+			[true ,true ,false,true ],
+			[true ,true ,true ,true ],
+			[true ,true ,false,true ],
+			[true ,false,false,true ],
+			[false,false,false,false]
+		],
+		'SKIPB' : [
+			[false,false,false,false],
+			[true ,false,false,true ],
+			[true ,false,true ,true ],
+			[true ,true ,true ,true ],
+			[true ,false,true ,true ],
+			[true ,false,false,true ],
+			[false,false,false,false]
+		],
+		'HEARTS' : [
+			[false,true ,true ,false,true ,true ,false],
+			[true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ],
+			[false,true ,true ,true ,true ,true ,false],
+			[false,false,true ,true ,true ,false,false],
+			[false,false,false,true ,false,false,false]
+		],
+		'SPADES' : [
+			[false,false,false,true ,false,false,false],
+			[false,false,true ,true ,true ,false,false],
+			[false,true ,true ,true ,true ,true ,false],
+			[true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ],
+			[false,false,false,true ,false,false,false],
+			[false,false,true ,true ,true ,false,false]
+		],
+		'DIAMONDS' : [
+			[false,false,true ,false,false],
+			[false,true ,true ,true ,false],
+			[true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ],
+			[false,true ,true ,true ,false],
+			[false,false,true ,false,false]
+		],
+		'CLUBS' : [
+			[false,false,true ,true ,true ,false,false],
+			[false,false,true ,true ,true ,false,false],
+			[true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,true ,true ],
+			[false,false,false,true ,false,false,false],
+			[false,false,true ,true ,true ,false,false]
+		],
+		'MetallicA' : [
+			[true ,false,false,false,true ,false,false,true ,true ,false,false,false,true ,false,false,false,true ,true ,false,false,true ,false,true ,false,true ,false,false,true ,true ,false,false,false,true ,false,false],
+			[true ,true ,false,true ,true ,false,true ,false,false,true ,false,true ,true ,true ,false,false,false,false,true ,false,true ,false,true ,false,false,false,true, false,false,false,false,true ,false,true ,false],
+			[true ,false,true ,false,true ,false,true ,true ,true ,false,false,false,true ,false,false,false,true ,true ,true ,false,true ,false,true ,false,true ,false,true, false,false,false,true ,false,false,false,true ],
+			[true ,false,false,false,true ,false,true ,false,false,false,false,false,true ,false,false,true ,false,false,true ,false,true ,false,true ,false,true ,false,true, false,false,false,true ,false,false,false,true ],
+			[true ,false,false,false,true ,false,false,true ,true ,false,false,false,true ,true ,false,false,true ,true ,true ,false,true ,false,true ,false,true ,false,false,true ,true ,false,true ,true ,true ,true ,true ],
+			[true ,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true ],
+			[true ,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true ]
+		],
+		'BEER' : [
+			[true ,false,false,false,true ,false,false],
+			[true ,false,true ,false,true ,true ,true ],
+			[true ,true ,false,true ,true ,false,true ],
+			[true ,true ,true ,true ,true ,false,true ],
+			[true ,true ,true ,true ,true ,false,true ],
+			[true ,true ,true ,true ,true ,true ,true ],
+			[true ,true ,true ,true ,true ,false,false]
+		],
+		'23:45' : [
+			[false,true ,true ,true ,false,false,true ,true ,true ,false,false,false,false,false,true ,false,true ,true ,true ,true ,true ],
+			[true ,false,false,false,true ,true ,false,false,false,true ,false,false,false,true ,true ,false,true ,false,false,false,false],
+			[false,false,false,false,true ,false,false,false,false,true ,true ,false,true ,false,true ,false,true ,true ,true ,true ,true ],
+			[false,false,false,true ,false,false,false,false,true ,false,false,true ,false,false,true ,false,false,false,false,false,true ],
+			[false,false,true ,false,false,false,false,false,false,true ,true ,true ,true ,true ,true ,true ,false,false,false,false,true ],
+			[false,true ,false,false,false,true ,false,false,false,true ,false,false,false,false,true ,false,true ,false,false,false,true ],
+			[true ,true ,true ,true ,true ,false,true ,true ,true ,false,false,false,false,false,true ,false,false,true ,true ,true ,false]
+		],
+		'23:44' : [
+			[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
+			[false,false,false,false,true ,true ,true ,false,true ,true ,true ,false,false,false,false,false,true ,false,false,false,true ],
+			[false,false,false,false,false,false,true ,false,false,false,true ,false,true ,false,false,true ,true ,false,false,true ,true ],
+			[false,false,false,false,true ,true ,true ,false,false,true ,true ,false,false,false,true ,false,true ,false,true ,false,true ],
+			[false,false,false,false,true ,false,false,false,false,false,true ,false,true ,false,true ,true ,true ,false,true ,true ,true ],
+			[false,false,false,false,true ,true ,true ,false,true ,true ,true ,false,false,false,false,false,true ,false,false,false,true ],
+			[false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false]
+		],
+		'hghghghgh' : [
+	[true ,true ,true ,true ,true ,false,false],
+	[true ,true ,true ,true ,true ,true ,true ],
+	[true ,true ,true ,true ,true ,true ,true ],
+	[true ,true ,true ,true ,true ,true ,true ],
+	[true ,true ,true ,true ,true ,true ,true ],
+	[true ,true ,true ,true ,true ,true ,true ],
+	[true ,true ,true ,true ,true ,false,false]
+],
+	};
+	
+	var shift = {
+		on: true,
+		roff: false,
+		value: 0
+	};
+	
+	function writeToDisplay() {
+		var text = $('text').value;
+		var atext = $('text').value.split('');
+		var offset = 0;
+		var display = $('display');
+		var rows = display.childNodes;
+		clearDisplay();
+		for(var i=0; i<atext.length; i++) {
+			var ch = charMap[atext[i]];
+			if(charMap[text]) {
+				ch = charMap[text];
+				i = atext.length;
+			}
+			if(!ch) {
+				break;
+			}
+			for(var j in rows) {
+				if(!ch[j]) {
+					break;
+				}
+				for(var k=0; k<ch[j].length; k++) {
+					if(shift.on && k + offset < shift.value) {
+						continue;
+					}
+					var pixel = rows[j].childNodes[k+offset-shift.value];
+					if(pixel) {
+						pixel.setAttribute('data-paint', 'true');
+						if(ch[j][k]) {
+							pixel.setAttribute('data-paint', 'true');
+						}
+						else {
+							pixel.removeAttribute('data-paint');
+						}
+					}
+				}
+			}
+			offset += ch[0].length +1;
+		}
+		
+		if(!shift.on) {
+			if(offset > 26) {
+				shift.on = true;
+				shift.value = 0;
+			}
+		}
+		else {
+			if(offset - shift.value > 26) {
+				if(!shift.value) {
+					shift.on = false;
+					setTimeout(function(){
+						shift.on = true;
+					}, 750);
+				}
+				shift.value++;
+			}
+			else {
+				shift.on = false;
+				shift.value = 0;
+				setTimeout(function(){
+					shift.on = true;
+				}, 750);
+			}
+		}
+	}
+	
+	setInterval(function(){
+		if(shift.roff) {
+			shift.on = shift.roff = false;
+		}
+		if(shift.on) {
+			writeToDisplay();
+		}
+	}, 250);
+	
+	function clearDisplay() {
+		var display = $('display');
+		for(var r in display.childNodes) {
+			for(p in display.childNodes[r].childNodes) {
+				display.childNodes[r].childNodes[p].removeAttribute &&
+				display.childNodes[r].childNodes[p].removeAttribute('data-paint');
+			}
+		}
+	}
+	
+	function setChar(ch) {
+		$('text').value = ch;
+		shift.value = 0;
+		shift.on = true;
+	}
+	(function(){
+		var charlist = $('charlist');
+		for(var ch in charMap) {
+			if(ch == '\'' || ch == '\\') {
+				charlist.innerHTML += '<span onclick="setChar(\'\\' +ch+ '\')">' +ch+ '</span> ';
+			}
+			else {
+				charlist.innerHTML += '<span onclick="setChar(\'' +ch+ '\')">' +ch+ '</span> ';
+			}
+		}
+	})();
+	
+	function getBitmap() {
+		var ch = prompt('Charname', $('text').value);
+		if(!ch) {
+			return;
+		}
+		
+		var width = 1, w = 0;
+		var display = $('display');
+		for(var r in display.childNodes) {
+			w = 0;
+			for(p in display.childNodes[r].childNodes) {
+				if(display.childNodes[r].childNodes[p].getAttribute) {
+					++w;
+					if(display.childNodes[r].childNodes[p].getAttribute('data-paint') && w>width) {
+						width = w;
+					}
+				}
+			}
+		}
+		
+		if(width == 0) {
+			return;
+		}
+		
+		var o = '';
+		
+		o += '\'' +ch+ '\' : [' + "\n";
+		for(var r in display.childNodes) {
+			if(display.childNodes[r].tagName != 'DIV') {
+				continue;
+			}
+			w = 0;
+			o += "\t" + '[';
+			for(p in display.childNodes[r].childNodes) {
+				if(w < width) {
+					display.childNodes[r].childNodes[p].getAttribute &&
+					(o += (display.childNodes[r].childNodes[p].getAttribute('data-paint') ? 'true ' : 'false'))
+				}
+				if(w < width -1) {
+					o += ','
+				}
+				++w;
+			}
+			o += '],' + "\n";
+		}
+		o = o.substring(0, o.length -2) + "\n";
+		o += '],' + "\n";
+		
+		alert(o);
+	}
+</script>
+<style>
+	body {
+		font-size: 24px;
+		font-family: sans-serif;
+	}
+	input {
+		font: inherit;
+	}
+.center {
+	text-align: center;
+}
+
+#text {
+  font-size: 150%;
+  margin: 0 auto;
+}
+
+#charlist {
+	font-size: 90%;
+	margin: 0 2em;
+}
+
+#charlist > span {
+  display: inline-block;
+	margin: 0.2em 0.2em;
+  background-color: silver;
+  padding: 0.1em 0.2em;
+  border-radius: 0.2em;
+  cursor: pointer;
+}
+#charlist > span:hover {
+	text-decoration: underline;
+}
+
+#display {
+	display: inline-block;
+  margin: 0 auto;
+  border: 1em solid;
+  border-radius: 1em;
+}
+
+#display > div {
+	height: 1em;
+  background-color: black;
+}
+
+#display > div > div {
+	width: 1em;
+  height: 1em;
+  float: left;
+  border-radius: 1em;
+  box-shadow: 0 0 0 0.25em inset;
+}
+
+#display:hover > div > div {
+	background-color: #200000;
+}
+
+#display > div > div[data-paint] {
+	background-color: red;
+}
+
+#display > div > div:hover {
+	background-color: #800000;
+  cursor: pointer;
+}
+
+</style>
