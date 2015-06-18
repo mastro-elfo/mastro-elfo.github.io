@@ -137,14 +137,18 @@ window.addEvent('domready', function(){
 		event.preventDefault();
 		var ids = event.target[0].value.split(',');
 		
+		//alert(JSON.encode([
+		//			{mpn_or_sku: 'SN74S74N'}
+		//		]).replace(/([\[\]\{\}])/g, '\\$1'))
+		
 		new Request.JSON({
-			'url': 'http://octopart.com/api/v3/parts/match',
+			'url': 'http://octopart.com/api/v3/parts/match?queries=[{"mpn_or_sku":"SN74S74N"}]',
 			method: 'get',
 			'data': {
 				apikey: '7ad62415',
-				queries: JSON.encode([
-					{mpn_or_sku: 'SN74S74N'}
-				])
+				//queries: JSON.encode([
+				//	{mpn_or_sku: 'SN74S74N'}
+				//])
 			},
 			onSuccess: function(json, text) {
 				alert(text);
