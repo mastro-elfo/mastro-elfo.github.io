@@ -175,7 +175,7 @@ window.addEvent('domready', function(){
 						td.set('html', 'Failed!');
 						alert(xhr);
 					}
-				}).send();
+				}).setHeader('Origin', 'https://api.element14.com/').send();
 			}
 		});
 		partList[0] && partList[0].fireEvent('update');
