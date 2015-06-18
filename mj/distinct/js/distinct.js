@@ -150,18 +150,20 @@ window.addEvent('domready', function(){
 				}).inject(td);
 				
 				new Request.JSON({
-					url: ''//
-						+'https://api.element14.com/catalog/products'//
-						+'?term=id%3A' + id//
-						+'&callInfo.responseDataFormat=JSON'//
-						+'&callInfo.omitXmlSchema=false'//
-						+'&callInfo.callback='//
-						+'&callInfo.apiKey=gd8n8b2kxqw6jq5mutsbrvur'//
-						+'&resultsSettings.offset=0'//
-						+'&resultsSettings.numberOfResults=1'//
-						+'&resultsSettings.refinements.filters='//
-						+'&resultsSettings.responseGroup=prices'//
-						+'&storeInfo.id=it.farnell.com',
+					url: 'https://api.element14.com/catalog/products',
+					method: 'get',
+					data: {
+						'term': 'id%3A' + id,
+						'callInfo.responseDataFormat': 'JSON',
+						'callInfo.omitXmlSchema': false,
+						'callInfo.callback': '',
+						'callInfo.apiKey': 'gd8n8b2kxqw6jq5mutsbrvur',
+						'resultsSettings.offset': 0,
+						'resultsSettings.numberOfResults': 1,
+						'resultsSettings.refinements.filters': '',
+						'resultsSettings.responseGroup': 'prices',
+						'storeInfo.id': 'it.farnell.com'
+					},
 					onSuccess: function(json){
 						json.premierFarnellPartNumberReturn.products.each(function(item){
 							partList.push(new Part(item, {
