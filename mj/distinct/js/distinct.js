@@ -139,6 +139,7 @@ window.addEvent('domready', function(){
 		
 		new Request.JSON({
 			'url': 'https://octopart.com/api/v3/parts/match',
+			method: 'get',
 			'data': {
 				apikey: '7ad62415',
 				queries: [
