@@ -138,12 +138,12 @@ window.addEvent('domready', function(){
 		var ids = event.target[0].value.split(',');
 		
 		new Request.JSON({
-			'url': 'https://octopart.com/api/v3/parts/match',
+			'url': 'http://octopart.com/api/v3/parts/match',
 			method: 'get',
 			'data': {
 				apikey: '7ad62415',
 				queries: [
-					{mpn: 'SN74S74N'}
+					{mpn_or_sku: 'SN74S74N'}
 				]
 			},
 			onSuccess: function(json, text) {
