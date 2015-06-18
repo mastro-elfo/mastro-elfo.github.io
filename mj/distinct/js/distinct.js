@@ -168,9 +168,10 @@ window.addEvent('domready', function(){
 							}).render());
 						});
 					},
-					onFailure: function(){
+					onFailure: function(json, text){
 						waiter.destroy();
 						td.set('html', 'Failed!');
+						alert(text);
 					}
 				}).send();
 			}
