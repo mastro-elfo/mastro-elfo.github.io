@@ -141,7 +141,9 @@ window.addEvent('domready', function(){
 			
 			if(!$('part-' + id)) {
 				var tr = new Element('tr').inject('result-table-body');
-				var td = new Element('td').inject(tr);
+				var td = new Element('td', {
+					'colspan': '8'
+				}).inject(tr);
 				var waiter = new Element('img', {
 					src: '',
 					alt: 'Wait...'
