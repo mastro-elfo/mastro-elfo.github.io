@@ -150,10 +150,10 @@ window.addEvent('domready', function(){
 				}).inject(td);
 				
 				new Request.JSON({
-					url: 'https://api.element14.com/catalog/products',
+					url: 'http://api.element14.com/catalog/products',
 					method: 'get',
 					data: {
-						'term': 'id%3A' + id,
+						'term': 'id:' + id,
 						'callInfo.responseDataFormat': 'JSON',
 						'callInfo.omitXmlSchema': false,
 						'callInfo.callback': '',
@@ -174,10 +174,10 @@ window.addEvent('domready', function(){
 					},
 					onFailure: function(xhr){
 						waiter.destroy();
-						td.set('html', 'Failed!');
-						alert(xhr);
+						td.set('html', id + ' failed!');
+						// alert(xhr);
 					}
-				}).setHeader('Access-Control-Allow-Origin', 'https://api.element14.com/').send();
+				}).setHeader('Access-Control-Allow-Origin', 'http://mastro-elfo.github.io').send();
 			}
 		});
 		partList[0] && partList[0].fireEvent('update');
