@@ -142,9 +142,9 @@ window.addEvent('domready', function(){
 			method: 'get',
 			'data': {
 				apikey: '7ad62415',
-				queries: [
+				queries: JSON.encode([
 					{mpn_or_sku: 'SN74S74N'}
-				]
+				])
 			},
 			onSuccess: function(json, text) {
 				alert(text);
