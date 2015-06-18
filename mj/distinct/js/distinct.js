@@ -203,5 +203,3 @@ window.addEvent('domready', function(){
 		partList[0] && partList[0].fireEvent('update');
 	});
 });
-
-term=id%3Afuse&storeInfo.id=uk.farnell.com&resultsSettings.offset=0&resultsSettings.numberOfResults=1&resultsSettings.refinements.filters=&resultsSettings.responseGroup=prices&callInfo.omitXmlSchema=false&callInfo.callback=&callInfo.responseDataFormat=json&callinfo.apiKey=gd8n8b2kxqw6jq5mutsbrvur
