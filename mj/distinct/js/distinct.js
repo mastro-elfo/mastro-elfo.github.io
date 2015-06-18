@@ -170,10 +170,10 @@ window.addEvent('domready', function(){
 							}).render());
 						});
 					},
-					onFailure: function(json, text){
+					onFailure: function(xhr){
 						waiter.destroy();
 						td.set('html', 'Failed!');
-						alert(text);
+						alert(xhr);
 					}
 				}).send();
 			}
