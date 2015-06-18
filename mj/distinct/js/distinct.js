@@ -136,6 +136,26 @@ window.addEvent('domready', function(){
 	$('query-ids').addEvent('submit', function(event){
 		event.preventDefault();
 		var ids = event.target[0].value.split(',');
+		
+		new Request.JSON({
+			'url': 'https://octopart.com/api/v3/parts/match',
+			'data': {
+				apikey: '7ad62415',
+				queries: [
+					{mpn: 'SN74S74N'}
+				]
+			},
+			onSuccess: function(json, text) {
+				alert(text);
+			},
+			onFailure: function(){
+				alert('Failed!');
+			}
+		}).send();
+		
+		
+		return;
+	
 		ids.each(function(id){
 			id = id.trim();
 			
@@ -183,3 +203,5 @@ window.addEvent('domready', function(){
 		partList[0] && partList[0].fireEvent('update');
 	});
 });
+
+term=id%3Afuse&storeInfo.id=uk.farnell.com&resultsSettings.offset=0&resultsSettings.numberOfResults=1&resultsSettings.refinements.filters=&resultsSettings.responseGroup=prices&callInfo.omitXmlSchema=false&callInfo.callback=&callInfo.responseDataFormat=json&callinfo.apiKey=gd8n8b2kxqw6jq5mutsbrvur
