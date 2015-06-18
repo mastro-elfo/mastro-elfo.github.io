@@ -142,14 +142,8 @@ window.addEvent('domready', function(){
 		//		]).replace(/([\[\]\{\}])/g, '\\$1'))
 		
 		new Request.JSON({
-			'url': 'http://octopart.com/api/v3/parts/match?queries=[{"mpn_or_sku":"SN74S74N"}]',
+			'url': 'http://octopart.com/api/v3/parts/match?apikey=7ad62415&queries=[{"mpn_or_sku":"SN74S74N"}]',
 			method: 'get',
-			'data': {
-				apikey: '7ad62415',
-				//queries: JSON.encode([
-				//	{mpn_or_sku: 'SN74S74N'}
-				//])
-			},
 			onSuccess: function(json, text) {
 				alert(text);
 			},
